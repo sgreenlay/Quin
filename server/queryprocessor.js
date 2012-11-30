@@ -34,22 +34,7 @@ qp.query = function(query, category, callback) {
 	
 	var token = process.env.HARD_FB_TOKEN;
 	
-	console.log('Query Before: ' + category);
-	
-	tfidf = new natural.TfIdf();
-	nounInflector = new natural.NounInflector();
-	tfidf.addDocument(query);
-	terms = _.map(tfidf.listTerms(0), function(x) {
-		return {
-			term: nounInflector.singularize(x.term),
-			tfidf: x.tfidf
-		}
-	});
-	terms = _.reject(terms, function(x) {
-		return !terms_to_queries[x.term];
-	});
-	
-	console.log('Query After: ' + terms);
+	console.log('Query: ' + category);
 	
 	switch (category) {
 		case 'current_loc':
