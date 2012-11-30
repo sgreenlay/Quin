@@ -64,7 +64,9 @@ tc.addKeyPhrases(genderMistakes, 'gender');
 // Languages training set
 var languageFeatures = [
 	'speak',
-	'speaking'
+	'speaking',
+	'speaks',
+	'fluent'
 ];
 var languages = [
 	'english',
@@ -89,10 +91,14 @@ var religions = [
 	'atheist',
 	'christian',
 	'catholic',
-	'muslum',
+	'muslim',
 	'jewish',
 	'jew',
-	'mormon'
+	'mormon',
+	'agnostic',
+	'hindu',
+	'buddhist',
+	'scientologist'
 ];
 tc.addKeyPhrases(religions, 'religion');
 
@@ -120,7 +126,8 @@ var locationFeatures = [
 	'house',
 	'apartment',
 	'visiting',
-	'in'
+	'in',
+	'lives'
 ];
 tc.addKeyPhrases(locationFeatures, 'current_loc');
 
@@ -131,6 +138,7 @@ var companyFeatures = [
 	'employed',
 	'job',
 	'at'
+	'works'
 ];
 var companies = [
 	'google',
