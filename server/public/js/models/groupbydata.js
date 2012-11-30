@@ -14,7 +14,6 @@ $(function($) {
             counts = _.sortBy(counts, function(x) {
                 return -x[1];
             });
-            console.log(counts);
 
             // Reject unknowns?
             if (self.a && self.a["reject_unknowns"]) {

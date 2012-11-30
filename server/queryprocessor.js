@@ -56,15 +56,9 @@ qp.query = function(query, category, callback) {
 				callback(null, true);
 			}
 			else {
-				var cityQuery = '(';
-				for (index in locations) {
-					cityQuery += '"' + toTitleCase(locations[index]) + '"';
-					if (index != locations.length - 1) {
-						cityQuery += ',';
-					}
-				}
-				cityQuery += ')';
-				var graphQuery = 'SELECT+name,uid+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me())+AND+current_location.city+IN+' + cityQuery + ';';
+                cityQuery = locations.join('+');
+				var graphQuery = 'SELECT+name,uid+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me())+AND+current_location.city+==+"' + cityQuery + '";';
+                console.log(graphQuery);
 				opengraph.fql(graphQuery, token, function(data) {
 					callback(data, false);
 				});

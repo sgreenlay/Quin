@@ -89,7 +89,7 @@ $(function($) {
                     return (i + 0.6) * HEIGHT/5;
                 })
                 .attr("x", function(d) {
-                    return x(value(d) + 6) + "px";
+                    return (x(value(d)) + 3) + "px";
                 });
             barsL.exit().remove();
         }
