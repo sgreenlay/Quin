@@ -15,12 +15,20 @@ $(function($) {
         },
 
         setType: function(type) {
-            this.URL = 'query?type=' + type
+            this.queryType = type
+        },
+        
+        setQuery: function(query) {
+            this.queryText = query
+        },
+        
+        getURL: function() {
+            return 'query?type=' + this.queryType + '&text=' + this.queryText;
         },
 
         load: function() {
             var self = this;
-            d3.json(this.URL, function(res) {
+            d3.json(self.getURL(), function(res) {
                 self.parse(res);
                 self.trigger("newData");
             });
