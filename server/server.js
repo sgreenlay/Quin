@@ -3,6 +3,7 @@ var express = require('express');
 var natural = require('natural');
 var opengraph = require('./opengraph');
 var tc = require('./textclassifier');
+var pos = require('pos');
 
 var app = express();
 app.configure(function(){
