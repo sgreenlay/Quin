@@ -11,7 +11,7 @@ $(function($) {
     var COLOR_MAP = {
         male: 'CornflowerBlue',
         female: 'Crimson',
-        unknown: 'Black'
+        unknown: 'White'
     };
 
     var BACKUP_COLORS = [
