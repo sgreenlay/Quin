@@ -26,10 +26,9 @@ app.get('/', function(req, res){
 app.get('/typeify', function(req, res) {
     
     query = req.query.query;
-    type = tc.classifier.classify(query);
+    type = tc.classify(query);
     
     console.log("Processing query '" + query + "' Type: " + type);
-    console.log(tc.classifier.classify(query));
     
     res.json(type);
 });

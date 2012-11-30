@@ -1,9 +1,34 @@
 var _ = require('underscore');
-var natural = require('natural');
 
 var tc = exports;
 
-tc.classifier = new natural.BayesClassifier();
+tc.kv = new Object();
+
+tc.addKeyPhrases = function(phrases, key) {
+	if (tc.kv[key]) {
+		tc.kv[key] = _.union(tc.kv[key], phrases);
+	}
+	else {
+		tc.kv[key] = phrases;
+	}
+};
+
+tc.classify = function(text) {
+	var text = ' ' + test + ' ';
+	var scores = new Object();
+	
+	var kvs = _.max(_.map((_.pairs(tc.kv), function (kval) {
+		var score = 0;
+		for (phrase in kval[1]) {
+			if (text.indexOf(' ' + phrase + ' ') > 0) {
+				score = score + 1;
+			}
+		}
+		return { key : kval[0], score : score };
+	}), function (ksco) {
+		return ksco.score;
+	});
+}
 
 // Gender training set
 var genderFeatures = [
@@ -15,7 +40,7 @@ var genderFeatures = [
 	'sex',
 	'gender'
 ];
-tc.classifier.addDocument(genderFeatures, 'gender');
+tc.addKeyPhrases(genderFeatures, 'gender');
 
 // Languages training set
 var languageFeatures = [
@@ -37,8 +62,8 @@ var languages = [
 	'italian',
 	'korean'
 ];
-tc.classifier.addDocument(languageFeatures, 'languages');
-tc.classifier.addDocument(languages, 'languages');
+tc.addKeyPhrases(languageFeatures, 'languages');
+tc.addKeyPhrases(languages, 'languages');
 
 // Religion training set
 var religions = [
@@ -50,7 +75,7 @@ var religions = [
 	'jew',
 	'mormon'
 ];
-tc.classifier.addDocument(religions, 'religion');
+tc.addKeyPhrases(religions, 'religion');
 
 // Current schools training set
 var schoolFeatures = [
@@ -65,8 +90,8 @@ var schools = [
 	'laurier',
 	'uw'
 ];
-tc.classifier.addDocument(schoolFeatures, 'current_school');
-tc.classifier.addDocument(schools, 'current_school');
+tc.addKeyPhrases(schoolFeatures, 'current_school');
+tc.addKeyPhrases(schools, 'current_school');
 
 // Current location training set
 var locationFeatures = [
@@ -76,7 +101,7 @@ var locationFeatures = [
 	'apartment',
 	'visiting'
 ];
-tc.classifier.addDocument(locationFeatures, 'current_loc');
+tc.addKeyPhrases(locationFeatures, 'current_loc');
 
 // Current job training set
 var companyFeatures = [
@@ -91,18 +116,12 @@ var companies = [
 	'microsoft',
 	'twitter'
 ];
-tc.classifier.addDocument(companyFeatures, 'current_job');
-tc.classifier.addDocument(companies, 'current_job');
+tc.addKeyPhrases(companyFeatures, 'current_job');
+tc.addKeyPhrases(companies, 'current_job');
 
 // Mutual friends training set
 var mutualFeatures = [
 	'common',
 	'mutual'
 ];
-tc.classifier.addDocument(mutualFeatures, 'mutual');
-
-tc.classifier.train();
-
-tc.classifier.save('classifier.json', function(err, classifier) {
-	// the classifier is saved to the classifier.json file!
-});
+tc.addKeyPhrases(mutualFeatures, 'mutual');
