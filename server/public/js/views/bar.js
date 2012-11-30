@@ -30,7 +30,7 @@ $(function($) {
         },
 
         render: function(model) {
-            var data, x, h, w, counts, value, label, barsD, barsL;
+            var data, x, h, w, value, label, barsD, barsL, color;
 
             data = model.get("data");
             value = function(d) { return d.value; }
@@ -40,6 +40,11 @@ $(function($) {
                 .linear()
                 .domain([0, this.model.get("max")])
                 .range([BAR_MIN_WIDTH, (WIDTH - 25)]);
+
+            color = d3.scale
+                .linear()
+                .domain([data[data.length-1].value, this.model.get("max")])
+                .range([0, 25]);
 
             barsD = this.chart.selectAll("rect")
                 .data(data);
@@ -54,7 +59,7 @@ $(function($) {
             .attr("height", HEIGHT/5)
             .style("fill", function(d) {
                 return "rgb(70, 130, " + 
-                    (Math.min(value(d) * 4, 100) + 150) + 
+                    (Math.floor(color(value(d))) + 200) +
                 ")";
             })
             .style("stroke", "white")
