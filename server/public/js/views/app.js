@@ -3,7 +3,9 @@ var app = app || {};
 $(function($) {
     'use strict';
     app.AppView = Backbone.View.extend({
-        render: function() {
+        initialize: function(a) {
+            var donut;
+            donut = new app.DonutView(a);
         }
     });
 });

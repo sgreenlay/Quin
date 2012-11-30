@@ -1,6 +1,11 @@
 var app = app || {};
 
 $(function($) {
-    var view;
-    view = new app.AppView();
+    var view, model;
+    model = new app.GenderData();
+    view = new app.AppView({
+        dataModel: model
+    });
+
+    model.load('/query');
 });
