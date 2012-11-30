@@ -2,8 +2,11 @@ var app = app || {};
 
 $(function($) {
     'use strict';
+
+    var TYPE_URL = 'typeify';
+
     app.AppView = Backbone.View.extend({
-        render: function() {
+        initialize: function(a) {
         }
     });
 });
