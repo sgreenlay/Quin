@@ -136,6 +136,7 @@
         [self.glowView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
         [self.glowProc.layer addAnimation:rotationAnimation forKey:@"rotation"];
         
+        [self fadeOut:self.glowProc];
         [self fadeIn:self.glowView];
         
         isRecording = TRUE;
@@ -151,9 +152,9 @@
     fadeAnim = [CABasicAnimation animationWithKeyPath:@"opacity"];
     fadeAnim.toValue = [NSNumber numberWithFloat:1.0f];
     fadeAnim.duration = 0.3;
+    
     fadeAnim.removedOnCompletion = NO;
     fadeAnim.fillMode = kCAFillModeForwards;
-    view.layer.opacity = 0.0f;
     [view.layer addAnimation:fadeAnim forKey:@"fadeIn"];
     view.hidden = NO;
 }
@@ -165,7 +166,6 @@
     fadeAnim.duration = 0.3;
     fadeAnim.removedOnCompletion = NO;
     fadeAnim.fillMode = kCAFillModeForwards;
-    view.layer.opacity = 1.0f;
     [view.layer addAnimation:fadeAnim forKey:@"fadeOut"];
 }
 

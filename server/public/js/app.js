@@ -7,6 +7,8 @@ $(function($) {
     var view, chart, model;
     chart = model = null;
 
+    var is_uiwebview = /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(navigator.userAgent);
+
     function getQueryVariable(variable) {
         var query = window.location.search.substring(1);
         var vars = query.split('&');
@@ -59,18 +61,23 @@ $(function($) {
             model.setToken(token);
             chart.setModel(model);
             model.load();
+            
+            d3.select("#query").text(getQueryVariable("query").capitalizeFirst());
 
             model.on('newData', function() {
                 // This will be cancelled by obj-c
-                var is_uiwebview = /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(navigator.userAgent);
                 if (is_uiwebview) {
                     window.location.href = "js-call:layoutWebview";
                 }
             });
+        } else {
+            d3.select("#query").text("Sorry, we couldn't understand your query! Please try again.");
+            // This will be cancelled by obj-c
+            if (is_uiwebview) {
+                window.location.href = "js-call:layoutWebview";
+            }
         }
     });
-
-    d3.select("#query").text(getQueryVariable("query").capitalizeFirst());
 });
 
 /* Utilities */
