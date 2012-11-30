@@ -35,6 +35,10 @@ $(function($) {
                 model = new app.GroupByData({field: "languages.name"});
                 chart = new app.DonutView();
                 break;
+            case 'relationship':
+                model = new app.GroupByData({field: "relationship_status", reject_unknowns:true});
+                chart = new app.DonutView();
+                break;
             case 'gender':
                 model = new app.GroupByData({field: "sex"});
                 chart = new app.DonutView();
@@ -46,6 +50,10 @@ $(function($) {
             case 'friends':
                 model = new app.CountData({field: "friend_count", slice_to: 5});
                 chart = new app.BarView();
+                break;
+            case 'single':
+                model = new app.Data({field: "", reject_unknowns:true});
+                chart = new app.FacepileView();
                 break;
         }
 

@@ -45,6 +45,7 @@ var genderFeatures = [
 	'guy',
 	'male',
 	'girls',
+	'ladies',
 	'boys',
 	'guys',
 	'males',
@@ -162,4 +163,23 @@ var mostFriendFeatures = [
 	'most popular'
 ];
 tc.addKeyPhrases(mostFriendFeatures, 'friends');
+
+// Single training set
+var singleFeatures = [
+	'single',
+	'guys',
+	'women',
+	'men',
+	'ladies'
+];
+tc.addKeyPhrases(singleFeatures, 'single');
+
+// Relationship training set
+var relationshipFeatures = [
+	'relationships',
+	'married',
+	'engaged',
+	'relationship'
+];
+tc.addKeyPhrases(relationshipFeatures, 'relationship');
  
