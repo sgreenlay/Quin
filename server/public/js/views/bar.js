@@ -8,6 +8,7 @@ $(function($) {
     var BAR_MIN_WIDTH = 10;
     var TEXT_WIDTH = 35;
     var BG_COLOR = "#1e1e1e";
+    var MARGIN = 3;
 
     app.BarView = app.ChartView.extend({
         initialize: function(a) {
@@ -37,7 +38,7 @@ $(function($) {
             color = d3.scale
                 .linear()
                 .domain([data[data.length-1].value, this.model.get("max")])
-                .range([0, 25]);
+                .range([25, 25]);
 
             barsD = this.chart.selectAll("rect")
                 .data(data);
@@ -47,16 +48,14 @@ $(function($) {
                 return x(value(d)) + "px";
             })
             .attr("y", function(d, i) {
-                return i * HEIGHT/5;
+                return i * (HEIGHT/5);
             })
-            .attr("height", HEIGHT/5)
+            .attr("height", (HEIGHT/5 - MARGIN))
             .style("fill", function(d) {
                 return "rgb(70, 130, " + 
                     (Math.floor(color(value(d))) + 200) +
                 ")";
-            })
-            .style("stroke", BG_COLOR)
-            .style("stroke-width", "4px");
+            });
 
             barsL = this.chart.selectAll("text.label")
                 .data(data);
@@ -90,7 +89,7 @@ $(function($) {
                     return (i + 0.6) * HEIGHT/5;
                 })
                 .attr("x", function(d) {
-                    return x(value(d) + 2) + "px";
+                    return x(value(d) + 6) + "px";
                 });
             barsL.exit().remove();
         }

@@ -6,7 +6,8 @@ $(function($) {
     app.FacepileView = app.ChartView.extend({
         initialize: function(a) {
             this.el = d3.select("#chart")
-                .append("div");
+                .append("div")
+                .attr("class", "clearfix");
         },
 
         render: function(model) {
@@ -20,11 +21,6 @@ $(function($) {
             divs.append("img")
                 .attr("src", function(d) {
                     return "http://graph.facebook.com/" + d.uid + "/picture?type=square";
-                });
-            divs.append("div")
-                .attr("class", "name")
-                .text(function(d) {
-                    return d.name;
                 });
         }
     });
