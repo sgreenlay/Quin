@@ -37,7 +37,7 @@ var inferType = function(query) {
 }
 
 queries = {
-    gender: 'SELECT+sex+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
+    gender: 'SELECT+name,sex+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
     mutuals: 'SELECT+name,mutual_friend_count+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
     friends: 'SELECT+name,friend_count+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
     current_loc: 'SELECT+name,current_location.city+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
@@ -77,7 +77,7 @@ app.get('/typeify', function(req, res) {
 app.get('/query', function(req, res){
     var token, type, query;
 
-    token = "AAACEdEose0cBAPkPXgrrrTrBNQj3gS9D4TRmBJnRJt8XEmaZBHmZBss69BLuhEyqdZCjz5aBkXgWiMyXPrzikhoeZANK9i5P1RlskutQ1PlU2DJeglwq";
+    token = process.env.HARD_FB_TOKEN;
     type = req.query.type;
     if (type == null) {
         return;
@@ -91,5 +91,5 @@ app.get('/query', function(req, res){
     });
 });
 
-app.listen(3000);
-console.log("Server Started on port 3000");
+app.listen(process.env.PORT);
+console.log("Server Started on port " + process.env.PORT);

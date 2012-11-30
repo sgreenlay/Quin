@@ -21,23 +21,23 @@ $(function($) {
     d3.json(TYPE_URL + "?query=" + getQueryVariable("query"), function(res) {
         switch(res) {
         case 'current_loc':
-            model = new app.CountData({field: "current_location.city", reject_unknowns:true});
+            model = new app.GroupByData({field: "current_location.city", reject_unknowns:true});
             chart = new app.BarView();
             break;
         case 'languages':
-            model = new app.CountData({field: "languages.name"});
+            model = new app.GroupByData({field: "languages.name"});
             chart = new app.DonutView();
             break;
         case 'gender':
-            model = new app.CountData({field: "sex"});
+            model = new app.GroupByData({field: "sex"});
             chart = new app.DonutView();
             break;
         case 'mutuals':
-            model = new app.MaxCountData({field: "mutual_friend_count"});
+            model = new app.CountData({field: "mutual_friend_count", slice_to:5});
             chart = new app.BarView();
             break;
         case 'friends':
-            model = new app.MaxCountData({field: "friend_count"});
+            model = new app.CountData({field: "friend_count", slice_to: 5});
             chart = new app.BarView();
             break;
         }
