@@ -46,7 +46,11 @@ opengraph.fql = function(query, token, callback) {
             data += chunk;
         });
         res.on('end', function() {
-            callback(JSON.parse(data));
+            try {
+                callback(JSON.parse(data));
+            } catch (e) {
+                console.log("Invalid FQL query " + data);
+            }
         });
     });
     req.end();

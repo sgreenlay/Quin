@@ -39,14 +39,18 @@ var inferType = function(query) {
 queries = {
     gender: 'SELECT+sex+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
     mutuals: 'SELECT+name,mutual_friend_count+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
-    friends: 'SELECT+name,friend_count+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());'
+    friends: 'SELECT+name,friend_count+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
+    current_loc: 'SELECT+name,current_location.city+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
+    languages: 'SELECT+name,languages.name+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());'
 }
 
 /* Make sure these are singular! */
 queries_to_terms = {
     mutuals: ['mutual'],
-    friends: ['popular', 'friend'],
-    gender: ['gender', 'sex', 'boy', 'girl', 'male', 'female']
+    friends: ['popular'],
+    gender: ['gender', 'sex', 'boy', 'girl', 'male', 'female', 'guy'],
+    current_loc: ['live'],
+    languages: ['speak', 'language']
 }
 terms_to_queries = {}
 _.each(queries_to_terms, function(x, i) {
@@ -66,13 +70,14 @@ app.get('/', function(req, res){
 
 app.get('/typeify', function(req, res) {
     query = req.query.query;
+    console.log("Processing query " + query, " Type: " + inferType(query));
     res.json(inferType(query));
 });
 
 app.get('/query', function(req, res){
     var token, type, query;
 
-    token = "AAACEdEose0cBAEBOlmyI3f7HQgbg5vtZCDScZA6L6ZCDZAwm2mb6jkuP9N5V53yZC2nQ5aMltKmLcmZB1ZCmTPyCBspEBu51PNIc0u1jbS0T7HDBmAa0HJ2";
+    token = "AAACEdEose0cBAPkPXgrrrTrBNQj3gS9D4TRmBJnRJt8XEmaZBHmZBss69BLuhEyqdZCjz5aBkXgWiMyXPrzikhoeZANK9i5P1RlskutQ1PlU2DJeglwq";
     type = req.query.type;
     if (type == null) {
         return;

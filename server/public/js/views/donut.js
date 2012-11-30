@@ -10,8 +10,16 @@ $(function($) {
 
     var COLOR_MAP = {
         male: 'CornflowerBlue',
-        female: 'Crimson'
+        female: 'Crimson',
+        unknown: 'Black'
     };
+
+    var BACKUP_COLORS = [
+        'Tomato',
+        'CornflowerBlue',
+        'Crimson',
+        'PaleGreen'
+    ];
 
     app.DonutView = app.ChartView.extend({
         initialize: function(a) {
@@ -27,7 +35,7 @@ $(function($) {
         },
 
         render: function(model) {
-            var arc, data, total;
+            var arc, data, total, legends;
 
             data = model.get("data");
             total = model.get("total");
@@ -46,13 +54,30 @@ $(function($) {
                 .data(data)
                 .enter().append("path")
                 .attr("d", arc)
-                .style("fill", function(d) {
+                .style("fill", function(d, i) {
                     if (COLOR_MAP[d.type]) {
                         return COLOR_MAP[d.type];
                     }
-                    return "black";
-                })
-;
+                    return BACKUP_COLORS[i % BACKUP_COLORS.length];
+                });
+
+            var legends = d3.select("#legend").selectAll("div.legend")
+                .data(data)
+                .enter().append("div")
+                .attr("class", "legend");
+            legends.append("div")
+                .attr("class", "box")
+                .style("background-color", function(d, i) {
+                    if (COLOR_MAP[d.type]) {
+                        return COLOR_MAP[d.type];
+                    }
+                    return BACKUP_COLORS[i % BACKUP_COLORS.length];
+                });
+            legends.append("div")
+                .attr("class", "label")
+                .text(function(d) {
+                    return d.type;
+                });
         }
     });
 });
