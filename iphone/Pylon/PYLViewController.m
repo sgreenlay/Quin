@@ -43,6 +43,23 @@
     [audioRecorder prepareToRecord];
     [self.glowView setHidden:YES];
     [self.glowProc setHidden:YES];
+    
+    [self addNewWebViewWithURL:[NSURL URLWithString:@"http://searchapp.herokuapp.com/help.html"]];
+}
+
+- (void)addNewWebViewWithURL:(NSURL*)url {
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, _topY, 320, 1)];
+    [webView setDelegate:self];
+    [webView setOpaque:NO];
+    [webView setBackgroundColor:[UIColor clearColor]];
+    [[webView subviews] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([obj isKindOfClass:[UIScrollView class]]) {
+            [(UIScrollView*)obj setScrollEnabled:NO];
+        }
+    }];
+    [webView.layer setOpacity:0];
+    [self.scrollView addSubview:webView];
+    [webView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -103,20 +120,7 @@
             NSString * queryUrl = [NSString stringWithFormat:@"http://searchapp.herokuapp.com/?query=%@&token=%@", text, token];
             NSString *acceptableUrl = [queryUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             
-            NSURL * url = [NSURL URLWithString:acceptableUrl];
-            
-            UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, _topY, 320, 1)];
-            [webView setDelegate:self];
-            [webView setOpaque:NO];
-            [webView setBackgroundColor:[UIColor clearColor]];
-            [[webView subviews] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                if ([obj isKindOfClass:[UIScrollView class]]) {
-                    [(UIScrollView*)obj setScrollEnabled:NO];
-                }
-            }];
-            [webView.layer setOpacity:0];
-            [self.scrollView addSubview:webView];
-            [webView loadRequest:[NSURLRequest requestWithURL:url]];
+            [self addNewWebViewWithURL:[NSURL URLWithString:acceptableUrl]];
         } else {
             [self fadeOut:self.glowProc];
         }
