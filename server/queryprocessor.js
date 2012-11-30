@@ -13,13 +13,14 @@ function toTitleCase(str)
 
 qp.queries = {
 	gender: 'SELECT+name,sex+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
+	relationship: 'SELECT+name,relationship_status+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
 	mutual: 'SELECT+name,mutual_friend_count+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
 	friends: 'SELECT+name,friend_count+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
 	current_loc: 'SELECT+name,current_location.city+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
 	languages: 'SELECT+name,languages.name+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());'
 }
 
-qp.query = function(query, category, callback) {
+qp.query = function(query, category, token, callback) {
 	var words = new pos.Lexer().lex(query);
 	var taggedWords = new pos.Tagger().tag(words);
 	
@@ -32,14 +33,13 @@ qp.query = function(query, category, callback) {
 	}
 	*/
 	
-	var token = process.env.HARD_FB_TOKEN;
-	
 	console.log('Query: ' + category);
 	
 	switch (category) {
 		case 'current_loc':
 			var mistakenWords = [
-				'show'
+				'show',
+				'friend'
 			];
 			
 			var locations = _.map(_.filter(taggedWords, function(taggedWord) {
@@ -56,20 +56,28 @@ qp.query = function(query, category, callback) {
 				callback(null, true);
 			}
 			else {
-				var cityQuery = '(';
-				for (index in locations) {
-					cityQuery += '"' + toTitleCase(locations[index]) + '"';
-					if (index != locations.length - 1) {
-						cityQuery += ',';
-					}
-				}
-				cityQuery += ')';
-				var graphQuery = 'SELECT+name,uid+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me())+AND+current_location.city+IN+' + cityQuery + ';';
+                cityQuery = locations.join('+');
+				var graphQuery = 'SELECT+name,uid+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me())+AND+current_location.city+==+"' + cityQuery + '";';
 				opengraph.fql(graphQuery, token, function(data) {
 					callback(data, false);
 				});
 			}
 			break;
+		case 'single':
+			var graphQuery='SELECT+name,uid+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me())+AND+relationship_status+IN+("Single")';
+			
+			if (_.intersection(query.split(' '), ['women', 'ladies']).length != 0) {
+				graphQuery += '+AND+sex+IN+("female")';
+			}
+			else if (_.intersection(query.split(' '), ['men', 'guys']).length != 0) {
+				graphQuery += '+AND+sex+IN+("male")';
+			}
+			opengraph.fql(graphQuery, token, function(data) {
+				console.log(data);
+				callback(data, false);
+			});
+			break;
+		case 'relationship':
 		case 'gender':
 		case 'mutual':
 		case 'friends':

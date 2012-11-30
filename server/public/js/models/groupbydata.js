@@ -7,6 +7,7 @@ $(function($) {
         parse: function(res) {
             var counts, total, max, self;
             self = this;
+
             counts = _.pairs(_.countBy(res.data, function(x) {
                 return self.extract(x) ? self.extract(x) : 'unknown';
             }));

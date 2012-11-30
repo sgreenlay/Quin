@@ -15,7 +15,6 @@ app.get('/', function(req, res){
 });
 
 app.get('/typeify', function(req, res) {
-    
     query = req.query.query.toLowerCase();
     type = tc.classify(query);
     
@@ -32,10 +31,9 @@ app.get('/query', function(req, res){
         return;
     }
     text = req.query.text.toLowerCase();
+    token = req.query.token;
     
-    console.log(req.query);
-    
-    var query = qp.query(text, type, function (data, err) {
+    var query = qp.query(text, type, token, function (data, err) {
         res.json(data);
     });
 });
