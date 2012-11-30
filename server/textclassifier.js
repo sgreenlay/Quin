@@ -158,7 +158,8 @@ tc.addKeyPhrases(mutualFeatures, 'mutual');
 // Most friends training set
 var mostFriendFeatures = [
 	'most friends',
-	'friends'
+	'largest number of friends',
+	'most popular'
 ];
 tc.addKeyPhrases(mostFriendFeatures, 'friends');
  
