@@ -7,6 +7,7 @@
 //
 
 #import "PYLViewController.h"
+#import "PYLHelper.h"
 #import "PYLSpeechToText.h"
 
 @interface PYLViewController ()
@@ -52,6 +53,7 @@
     }
     else {
         [audioRecorder stop];
+        isRecording = FALSE;
         [PYLSpeechToText convertSpeechToText:speechFilePath andProcessTextWithBlock:^(NSString * text) {
             NSLog(@"%@", text);
         } error:nil];

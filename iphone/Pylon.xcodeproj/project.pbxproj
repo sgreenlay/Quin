@@ -22,6 +22,7 @@
 		1409F77516682DEC00A6B4A3 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1409F77316682DEC00A6B4A3 /* MainStoryboard.storyboard */; };
 		1409F77816682DEC00A6B4A3 /* PYLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1409F77716682DEC00A6B4A3 /* PYLViewController.m */; };
 		1409F783166830C500A6B4A3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1409F782166830C500A6B4A3 /* AVFoundation.framework */; };
+		14C994FB1668933100770329 /* PYLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C994FA1668933100770329 /* PYLHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,8 @@
 		1409F77716682DEC00A6B4A3 /* PYLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PYLViewController.m; sourceTree = "<group>"; };
 		1409F782166830C500A6B4A3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		14C994ED1668861700770329 /* WAVtoFLAC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WAVtoFLAC.h; sourceTree = "<group>"; };
+		14C994F91668933100770329 /* PYLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYLHelper.h; sourceTree = "<group>"; };
+		14C994FA1668933100770329 /* PYLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYLHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 				1409F77316682DEC00A6B4A3 /* MainStoryboard.storyboard */,
 				1409F77616682DEC00A6B4A3 /* PYLViewController.h */,
 				1409F77716682DEC00A6B4A3 /* PYLViewController.m */,
+				14C994F91668933100770329 /* PYLHelper.h */,
+				14C994FA1668933100770329 /* PYLHelper.m */,
 				14006DFD1668385700DE6EAB /* PYLSpeechToText.h */,
 				14006DFE1668385700DE6EAB /* PYLSpeechToText.m */,
 				1409F76216682DEC00A6B4A3 /* Supporting Files */,
@@ -197,6 +202,7 @@
 				1409F76C16682DEC00A6B4A3 /* PYLAppDelegate.m in Sources */,
 				1409F77816682DEC00A6B4A3 /* PYLViewController.m in Sources */,
 				14006DFF1668385700DE6EAB /* PYLSpeechToText.m in Sources */,
+				14C994FB1668933100770329 /* PYLHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
