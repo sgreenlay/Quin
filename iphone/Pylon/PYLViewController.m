@@ -23,6 +23,7 @@
     [super viewDidLoad];
 	
     isRecording = FALSE;
+    _topY = 0.0f;
     
     NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [directoryPaths objectAtIndex:0];
@@ -50,17 +51,39 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView{
-    [self fadeOut:self.glowProc];
-
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSLog(@"Done loading.");
 }
-- (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
+
+- (BOOL)webView:(UIWebView *)webView
+    shouldStartLoadWithRequest:(NSURLRequest *)request
+    navigationType:(UIWebViewNavigationType)navigationType {
+    // Intercept custom location change, URL begins with "js-call:"
+    if ([[[request URL] absoluteString] hasPrefix:@"js-call:"]) {
+        [self layoutWebview:webView];
+        
+        // Cancel the location change
+        return NO;
+    }
+    
+    // Accept this location change
     return YES;
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    NSLog(@"Error. %@", error);
+- (void)layoutWebview:(UIWebView*)webView {
+    [self.scrollView setContentOffset:CGPointMake(0, _topY) animated:YES];
+    
+    NSString *heightStr = [webView stringByEvaluatingJavaScriptFromString:@"windowHeight()"];
+    float height = [heightStr floatValue] + 100;
+    NSLog(@"Height: %f", height);
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, height + webView.frame.origin.y);
+    CGRect fr = webView.frame;
+    fr.size = CGSizeMake(webView.frame.size.width, height);
+    webView.frame = fr;
+    _topY += height - 70;
+    
+    [self fadeIn:webView];
+    [self fadeOut:self.glowProc];
 }
 
 - (void)startRecording {
@@ -81,7 +104,19 @@
             NSString *acceptableUrl = [queryUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             
             NSURL * url = [NSURL URLWithString:acceptableUrl];
-            [_webView loadRequest:[NSURLRequest requestWithURL:url]];
+            
+            UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, _topY, 320, 1)];
+            [webView setDelegate:self];
+            [webView setOpaque:NO];
+            [webView setBackgroundColor:[UIColor clearColor]];
+            [[webView subviews] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                if ([obj isKindOfClass:[UIScrollView class]]) {
+                    [(UIScrollView*)obj setScrollEnabled:NO];
+                }
+            }];
+            [webView.layer setOpacity:0];
+            [self.scrollView addSubview:webView];
+            [webView loadRequest:[NSURLRequest requestWithURL:url]];
         } else {
             [self fadeOut:self.glowProc];
         }
