@@ -26,10 +26,10 @@
                                     </webView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="b8J-LR-qWy" firstAttribute="top" secondItem="vhl-ph-Kq5" secondAttribute="top" constant="-20" id="7lL-mr-yaG"/>
+                                    <constraint firstItem="b8J-LR-qWy" firstAttribute="top" secondItem="vhl-ph-Kq5" secondAttribute="top" type="user" id="7lL-mr-yaG"/>
                                     <constraint firstItem="b8J-LR-qWy" firstAttribute="trailing" secondItem="vhl-ph-Kq5" secondAttribute="trailing" type="default" id="EVf-un-slW"/>
+                                    <constraint firstAttribute="bottom" secondItem="b8J-LR-qWy" secondAttribute="bottom" type="user" id="L8h-Ne-c2u"/>
                                     <constraint firstItem="b8J-LR-qWy" firstAttribute="centerX" secondItem="vhl-ph-Kq5" secondAttribute="centerX" type="default" id="iJP-h3-qiP"/>
-                                    <constraint firstAttribute="bottom" secondItem="b8J-LR-qWy" secondAttribute="bottom" constant="-21" id="niX-4K-XzO"/>
                                     <constraint firstItem="b8J-LR-qWy" firstAttribute="leading" secondItem="vhl-ph-Kq5" secondAttribute="leading" type="default" id="oyz-37-fDt"/>
                                 </constraints>
                             </scrollView>
@@ -57,8 +57,8 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZV-Qd-L8a">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="85" id="b5r-6D-Wf8"/>
-                                    <constraint firstAttribute="height" constant="43" id="f8n-bv-XGV"/>
+                                    <constraint firstAttribute="width" constant="87" id="F1j-bh-jlX"/>
+                                    <constraint firstAttribute="height" constant="51" id="mXG-ey-KCe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Button" image="Button-Left.png">
@@ -74,7 +74,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID5-Wk-nG7">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="86" id="1N7-RO-sQa"/>
+                                    <constraint firstAttribute="width" constant="88" id="oGz-jr-a7r"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Button" image="Button-Right.png">
@@ -88,31 +88,50 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Glow-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="QZb-0q-ovK">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="7fd-fc-Kl1"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Glow.png" translatesAutoresizingMaskIntoConstraints="NO" id="MJ2-r1-5Sc">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="95" id="a48-sv-83v"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="MJ2-r1-5Sc" firstAttribute="centerX" secondItem="qP1-L7-EXD" secondAttribute="centerX" type="default" id="2cS-dO-Mly"/>
+                            <constraint firstItem="MJ2-r1-5Sc" firstAttribute="trailing" secondItem="QZb-0q-ovK" secondAttribute="trailing" type="default" id="3XH-kB-OwJ"/>
                             <constraint firstItem="qP1-L7-EXD" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="44s-JQ-lUD"/>
                             <constraint firstAttribute="bottom" secondItem="vhl-ph-Kq5" secondAttribute="bottom" constant="41" id="7fq-pK-e8z"/>
-                            <constraint firstItem="lXs-W1-s3f" firstAttribute="centerX" secondItem="qP1-L7-EXD" secondAttribute="centerX" type="default" id="93s-Fh-F9r"/>
                             <constraint firstItem="vhl-ph-Kq5" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="FBd-6A-9Yz"/>
+                            <constraint firstItem="MJ2-r1-5Sc" firstAttribute="bottom" secondItem="QZb-0q-ovK" secondAttribute="bottom" type="default" id="FOO-q6-Q6Z"/>
                             <constraint firstItem="9Hf-Hz-MSF" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="Fsm-sh-4iA"/>
                             <constraint firstItem="9Hf-Hz-MSF" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="GDz-IF-NGe"/>
                             <constraint firstItem="vhl-ph-Kq5" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="GgJ-DR-qHj"/>
-                            <constraint firstItem="ID5-Wk-nG7" firstAttribute="centerY" secondItem="tZV-Qd-L8a" secondAttribute="centerY" type="default" id="PHM-0d-xfT"/>
+                            <constraint firstItem="MJ2-r1-5Sc" firstAttribute="centerY" secondItem="lXs-W1-s3f" secondAttribute="centerY" type="default" id="H9Z-Wl-M13"/>
+                            <constraint firstItem="ID5-Wk-nG7" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="Lo7-XP-j6D"/>
+                            <constraint firstItem="ID5-Wk-nG7" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="NtA-Pv-eDm"/>
                             <constraint firstItem="vhl-ph-Kq5" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="PSh-NZ-mEX"/>
-                            <constraint firstItem="ID5-Wk-nG7" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="Wa5-Vz-dVd"/>
                             <constraint firstItem="9Hf-Hz-MSF" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="Wtl-kY-pcD"/>
                             <constraint firstItem="9Hf-Hz-MSF" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="Yfu-Jb-rRc"/>
-                            <constraint firstAttribute="bottom" secondItem="lXs-W1-s3f" secondAttribute="bottom" constant="11" id="cEv-fb-DKL"/>
+                            <constraint firstItem="MJ2-r1-5Sc" firstAttribute="centerX" secondItem="lXs-W1-s3f" secondAttribute="centerX" type="default" id="bJh-of-jol"/>
                             <constraint firstItem="qP1-L7-EXD" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="fNx-Dk-udm"/>
+                            <constraint firstAttribute="bottom" secondItem="MJ2-r1-5Sc" secondAttribute="bottom" constant="3" id="gNx-HV-df6"/>
+                            <constraint firstItem="ID5-Wk-nG7" firstAttribute="top" secondItem="tZV-Qd-L8a" secondAttribute="top" type="default" id="h77-P7-4r5"/>
                             <constraint firstItem="tZV-Qd-L8a" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="ipt-gt-77D"/>
-                            <constraint firstItem="tZV-Qd-L8a" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="t6u-Ff-7hh"/>
-                            <constraint firstItem="ID5-Wk-nG7" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="tic-Y8-MG9"/>
+                            <constraint firstItem="MJ2-r1-5Sc" firstAttribute="top" secondItem="QZb-0q-ovK" secondAttribute="top" type="default" id="k7d-Uh-ZdV"/>
+                            <constraint firstItem="MJ2-r1-5Sc" firstAttribute="leading" secondItem="QZb-0q-ovK" secondAttribute="leading" type="default" id="pIo-d6-qoJ"/>
+                            <constraint firstItem="tZV-Qd-L8a" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="x4e-cu-QkP"/>
                             <constraint firstItem="qP1-L7-EXD" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="zzy-yA-aCR"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="button" destination="lXs-W1-s3f" id="XkW-rp-QtG"/>
+                        <outlet property="glowProc" destination="MJ2-r1-5Sc" id="DB9-Q0-Yhc"/>
+                        <outlet property="glowView" destination="QZb-0q-ovK" id="qar-rj-9Lb"/>
+                        <outlet property="scrollView" destination="vhl-ph-Kq5" id="ru2-Ol-g7z"/>
                         <outlet property="webView" destination="b8J-LR-qWy" id="p4J-Mx-Kvv"/>
                     </connections>
                 </viewController>
@@ -123,11 +142,13 @@
     <resources>
         <image name="Background.png" width="640" height="960"/>
         <image name="BottomBar.png" width="640" height="960"/>
-        <image name="Button-Left.png" width="169" height="85"/>
+        <image name="Button-Left.png" width="173" height="102"/>
         <image name="Button-LeftOver.png" width="169" height="85"/>
         <image name="Button-Main.png" width="167" height="167"/>
-        <image name="Button-Right.png" width="166" height="85"/>
+        <image name="Button-Right.png" width="175" height="102"/>
         <image name="Button-RightOver.png" width="166" height="85"/>
+        <image name="Glow-Blue.png" width="185" height="185"/>
+        <image name="Glow.png" width="185" height="185"/>
     </resources>
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
@@ -138,6 +159,9 @@
             <relationships>
                 <relationship kind="action" name="searchButtonPress:"/>
                 <relationship kind="outlet" name="button" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="glowProc" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="glowView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>

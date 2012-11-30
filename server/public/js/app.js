@@ -18,6 +18,11 @@ $(function($) {
         }
     }
 
+    function capitalizeFirst(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+
     d3.json(TYPE_URL + "?query=" + getQueryVariable("query"), function(res) {
         switch(res) {
         case 'current_loc':
@@ -49,5 +54,5 @@ $(function($) {
         }
     });
 
-    d3.select("#query").text(getQueryVariable("query"));
+    d3.select("#query").text(capitalizeFirst(getQueryVariable("query")));
 });

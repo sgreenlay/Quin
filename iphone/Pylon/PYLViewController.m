@@ -9,6 +9,7 @@
 #import "PYLViewController.h"
 #import "PYLHelper.h"
 #import "PYLSpeechToText.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface PYLViewController ()
 
@@ -38,6 +39,8 @@
     audioRecorder = [[AVAudioRecorder alloc] initWithURL:[NSURL URLWithString:speechFilePath] settings:recordSettings error:nil];
     
     [audioRecorder prepareToRecord];
+    [self.glowView setHidden:YES];
+    [self.glowProc setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,6 +50,8 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
+    [self fadeOut:self.glowProc];
+
     NSLog(@"Done loading.");
 }
 - (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
@@ -62,6 +67,10 @@
 }
 
 - (void)stopRecording {
+    
+    [self fadeOut:self.glowView];
+    [self fadeIn:self.glowProc];
+    
     [audioRecorder stop];
     [PYLSpeechToText convertSpeechToText:speechFilePath andProcessTextWithBlock:^(NSString * text, NSError *error) {
         if (error == nil) {
@@ -69,26 +78,26 @@
             NSString *acceptableUrl = [queryUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             NSURL * url = [NSURL URLWithString:acceptableUrl];
             [_webView loadRequest:[NSURLRequest requestWithURL:url]];
+        } else {
+            [self fadeOut:self.glowProc];
         }
-        [_button.imageView stopAnimating];
-        _button.imageView.animationImages = nil;
-        _button.imageView.image = [UIImage imageNamed:@"Button.png"];
     }];
 }
 
 - (IBAction)searchButtonPress:(id)sender {
     if (!isRecording) {
         [self startRecording];
+
+        CABasicAnimation* rotationAnimation;
+        rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+        rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * -2.0];
+        rotationAnimation.duration = 1.5;
+        rotationAnimation.cumulative = YES;
+        rotationAnimation.repeatCount = 1e100f;
+        [self.glowView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+        [self.glowProc.layer addAnimation:rotationAnimation forKey:@"rotation"];
         
-        _button.imageView.animationImages = [NSArray arrayWithObjects:
-                                             [UIImage imageNamed:@"Button-anim1.png"],
-                                             [UIImage imageNamed:@"Button-anim2.png"],
-                                             [UIImage imageNamed:@"Button-anim3.png"],
-                                             [UIImage imageNamed:@"Button-anim4.png"],
-                                             [UIImage imageNamed:@"Button-anim5.png"],
-                                             nil];
-        _button.imageView.animationDuration = 0.7;
-        [_button.imageView startAnimating];
+        [self fadeIn:self.glowView];
         
         isRecording = TRUE;
     }
@@ -96,6 +105,29 @@
         isRecording = FALSE;
         [self stopRecording];
     }
+}
+
+- (void)fadeIn:(UIView*)view {
+    CABasicAnimation* fadeAnim;
+    fadeAnim = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    fadeAnim.toValue = [NSNumber numberWithFloat:1.0f];
+    fadeAnim.duration = 0.3;
+    fadeAnim.removedOnCompletion = NO;
+    fadeAnim.fillMode = kCAFillModeForwards;
+    view.layer.opacity = 0.0f;
+    [view.layer addAnimation:fadeAnim forKey:@"fadeIn"];
+    view.hidden = NO;
+}
+
+- (void)fadeOut:(UIView*)view {
+    CABasicAnimation* fadeAnim;
+    fadeAnim = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    fadeAnim.toValue = [NSNumber numberWithFloat:0];
+    fadeAnim.duration = 0.3;
+    fadeAnim.removedOnCompletion = NO;
+    fadeAnim.fillMode = kCAFillModeForwards;
+    view.layer.opacity = 1.0f;
+    [view.layer addAnimation:fadeAnim forKey:@"fadeOut"];
 }
 
 @end

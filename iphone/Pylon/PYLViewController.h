@@ -17,6 +17,9 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *button;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIImageView *glowView;
+@property (weak, nonatomic) IBOutlet UIImageView *glowProc;
 
 - (IBAction)searchButtonPress:(id)sender;
 
