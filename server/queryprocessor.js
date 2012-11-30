@@ -74,7 +74,7 @@ qp.query = function(query, category, callback) {
 		case 'mutuals':
 		case 'friends':
 		case 'languages':
-			opengraph.fql(qp.queries[type], token, function(data) {
+			opengraph.fql(qp.queries[category], token, function(data) {
 				if (res == null) {
 					error();
 				}
