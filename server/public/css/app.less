@@ -1,28 +1,41 @@
-@gray: #1e1e1e;
-
 BODY {
-  background-color: @gray;
+  background-color: transparent;
+  color: white;
   font-family: helvetica, sans-serif;
   }
 
+#container {
+  border: 2px solid rgb(52, 52, 52);
+  margin: 1em;
+  padding: 1em;
+  width: 480px;
+  }
+
+#query {
+  font-size: 2.8em;
+  font-weight: lighter;
+  line-height: 1.2em;
+  margin-bottom: 1em;
+  }
+
 #legend {
-  margin-top: 5px;
+  margin-top: 1em;
   }
 
 .legend {
-  color: white;
+  font-size: 1.5em;
   margin-top: 5px;
 
   .box {
     float: left;
-    height: 15px;
-    margin-left: 10px;
-    width: 15px;
+    height: 1em;
+    width: 1em;
     }
 
   .label {
+    float: left;
     font-family: helvetica;
     font-weight: 500;
-    margin-left: 40px;
+    margin-left: 0.5em;
     }
   }
