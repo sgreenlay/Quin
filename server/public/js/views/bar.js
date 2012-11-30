@@ -3,10 +3,10 @@ var app = app || {};
 $(function($) {
     'use strict';
 
-    var WIDTH = 200;
+    var WIDTH = 300;
     var HEIGHT = 200;
     var BAR_MIN_WIDTH = 10;
-    var COLOR
+    var TEXT_WIDTH = 35;
 
     app.BarView = app.ChartView.extend({
         initialize: function(a) {
@@ -31,7 +31,7 @@ $(function($) {
             x = d3.scale
                 .linear()
                 .domain([0, this.model.get("max")])
-                .range([BAR_MIN_WIDTH, (WIDTH - 25)]);
+                .range([BAR_MIN_WIDTH, (WIDTH - TEXT_WIDTH)]);
 
             color = d3.scale
                 .linear()

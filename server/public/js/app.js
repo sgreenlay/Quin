@@ -25,12 +25,17 @@ $(function($) {
             chart = new app.DonutView();
             break;
         case 'mutuals':
-            model = new app.MutualData();
+            model = new app.MaxCountData({field: "mutual_friend_count"});
+            chart = new app.BarView();
+            break;
+        case 'friends':
+            model = new app.MaxCountData({field: "friend_count"});
             chart = new app.BarView();
             break;
         }
 
         if (chart != null && model != null) {
+            model.setType(res);
             chart.setModel(model);
             model.load();
         }

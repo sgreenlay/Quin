@@ -38,14 +38,14 @@ var inferType = function(query) {
 
 queries = {
     gender: 'SELECT+sex+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
-    mutuals: 'SELECT+name,mutual_friend_count+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());'
+    mutuals: 'SELECT+name,mutual_friend_count+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
     friends: 'SELECT+name,friend_count+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());'
 }
 
 /* Make sure these are singular! */
 queries_to_terms = {
     mutuals: ['mutual'],
-    friends: ['popular', 'most', 'friends'],
+    friends: ['popular', 'friend'],
     gender: ['gender', 'sex', 'boy', 'girl', 'male', 'female']
 }
 terms_to_queries = {}
