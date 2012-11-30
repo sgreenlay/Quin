@@ -28,8 +28,8 @@ $(function($) {
     d3.json(TYPE_URL + "?query=" + query, function(res) {
         switch(res) {
             case 'current_loc':
-                model = new app.GroupByData({field: "current_location.city", reject_unknowns:true});
-                chart = new app.BarView();
+                model = new app.Data({field: "", reject_unknowns:true});
+                chart = new app.FacepileView();
                 break;
             case 'languages':
                 model = new app.GroupByData({field: "languages.name"});

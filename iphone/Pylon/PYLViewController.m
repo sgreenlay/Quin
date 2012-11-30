@@ -60,7 +60,7 @@
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    NSLog(@"Error.");
+    NSLog(@"Error. %@", error);
 }
 
 - (void)startRecording {
