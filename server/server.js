@@ -25,7 +25,7 @@ app.get('/', function(req, res){
 
 app.get('/typeify', function(req, res) {
     
-    query = req.query.query;
+    query = req.query.query.toLowerCase();
     type = tc.classify(query);
     
     console.log("Processing query '" + query + "' Type: " + type);
@@ -41,7 +41,7 @@ app.get('/query', function(req, res){
     if (type == null) {
         return;
     }
-    query = req.query.text;
+    query = req.query.text.toLowerCase();
     
     console.log(req.query);
     

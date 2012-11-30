@@ -14,20 +14,28 @@ tc.addKeyPhrases = function(phrases, key) {
 };
 
 tc.classify = function(text) {
-	var text = ' ' + test + ' ';
+	var text = " " + text + " ";
 	var scores = new Object();
 	
-	var kvs = _.max(_.map((_.pairs(tc.kv), function (kval) {
+	var pairs = _.pairs(tc.kv);
+	var scores = _.map(pairs, function (kval) {
 		var score = 0;
-		for (phrase in kval[1]) {
-			if (text.indexOf(' ' + phrase + ' ') > 0) {
+		_.each(kval[1], function (phrase) {
+			if (text.indexOf(" " + phrase + " ") >= 0) {
 				score = score + 1;
 			}
-		}
+		});
 		return { key : kval[0], score : score };
-	}), function (ksco) {
+	});
+	
+	var best = _.max(scores, function (ksco) {
 		return ksco.score;
 	});
+	
+	if (best.score == 0) {
+		return 'none';
+	}
+	return best.key;
 }
 
 // Gender training set
@@ -36,11 +44,22 @@ var genderFeatures = [
 	'boy',
 	'guy',
 	'male',
-	'female',
+	'females',
+	'girls',
+	'boys',
+	'guys',
+	'males',
+	'females',
+	'women',
+	'men',
 	'sex',
 	'gender'
 ];
+var genderMistakes = [
+	'mail'
+];
 tc.addKeyPhrases(genderFeatures, 'gender');
+tc.addKeyPhrases(genderMistakes, 'gender');
 
 // Languages training set
 var languageFeatures = [
@@ -83,7 +102,8 @@ var schoolFeatures = [
 	'studies',
 	'study',
 	'goes to',
-	'go to'
+	'go to',
+	'at'
 ];
 var schools = [
 	'waterloo',
@@ -99,7 +119,8 @@ var locationFeatures = [
 	'located',
 	'house',
 	'apartment',
-	'visiting'
+	'visiting',
+	'in'
 ];
 tc.addKeyPhrases(locationFeatures, 'current_loc');
 
@@ -108,7 +129,8 @@ var companyFeatures = [
 	'work',
 	'working',
 	'employed',
-	'job'
+	'job',
+	'at'
 ];
 var companies = [
 	'google',
