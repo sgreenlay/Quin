@@ -12,10 +12,10 @@ function toTitleCase(str)
 
 qp.queries = {
 	gender: 'SELECT+name,sex+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
-	mutuals: 'SELECT+name,mutual_friend_count+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
+	mutual: 'SELECT+name,mutual_friend_count+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
 	friends: 'SELECT+name,friend_count+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
 	current_loc: 'SELECT+name,current_location.city+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
-	languages: 'SELECT+name,languages.name+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());'
+	language: 'SELECT+name,languages.name+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());'
 }
 
 qp.query = function(query, category, callback) {
@@ -32,6 +32,8 @@ qp.query = function(query, category, callback) {
 	*/
 	
 	var token = process.env.HARD_FB_TOKEN;
+	
+	console.log('Query: ' + category);
 	
 	switch (category) {
 		case 'current_loc':
@@ -63,26 +65,20 @@ qp.query = function(query, category, callback) {
 				cityQuery += ')';
 				var graphQuery = 'SELECT+name,uid+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me())+AND+current_location.city+IN+' + cityQuery + ';';
 				opengraph.fql(graphQuery, token, function(data) {
-					if (res == null) {
-						error();
-					}
-					res.json(data);
+					callback(data, false);
 				});
 			}
 			break;
 		case 'gender':
-		case 'mutuals':
+		case 'mutual':
 		case 'friends':
-		case 'languages':
+		case 'language':
 			opengraph.fql(qp.queries[category], token, function(data) {
-				if (res == null) {
-					error();
-				}
-				res.json(data);
+				callback(data, false);
 			});
 			break;
 		default:
-			error();
+			callback(null, true);
 			break;
 	}
 };

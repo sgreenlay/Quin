@@ -36,9 +36,6 @@ app.get('/query', function(req, res){
     console.log(req.query);
     
     var query = qp.query(text, type, function (data, err) {
-        if (err || data == null) {
-            error();
-        }
         res.json(data);
     });
 });

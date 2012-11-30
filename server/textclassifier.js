@@ -136,7 +136,7 @@ var companyFeatures = [
 	'working',
 	'employed',
 	'job',
-	'at'
+	'at',
 	'works'
 ];
 var companies = [
@@ -154,3 +154,11 @@ var mutualFeatures = [
 	'mutual'
 ];
 tc.addKeyPhrases(mutualFeatures, 'mutual');
+
+// Most friends training set
+var mostFriendFeatures = [
+	'most friends',
+	'friends'
+];
+tc.addKeyPhrases(mostFriendFeatures, 'friends');
+ 

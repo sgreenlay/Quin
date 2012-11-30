@@ -30,7 +30,7 @@ $(function($) {
                 model = new app.GroupByData({field: "current_location.city", reject_unknowns:true});
                 chart = new app.BarView();
                 break;
-            case 'languages':
+            case 'language':
                 model = new app.GroupByData({field: "languages.name"});
                 chart = new app.DonutView();
                 break;
@@ -38,7 +38,7 @@ $(function($) {
                 model = new app.GroupByData({field: "sex"});
                 chart = new app.DonutView();
                 break;
-            case 'mutuals':
+            case 'mutual':
                 model = new app.CountData({field: "mutual_friend_count", slice_to:5});
                 chart = new app.BarView();
                 break;
