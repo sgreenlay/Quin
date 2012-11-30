@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface PYLViewController : UIViewController {
+@interface PYLViewController : UIViewController<UIWebViewDelegate> {
     BOOL isRecording;
     AVAudioRecorder *audioRecorder;
     NSString *speechFilePath;
 }
+
+@property (weak, nonatomic) IBOutlet UIButton *button;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 - (IBAction)searchButtonPress:(id)sender;
 

@@ -23,6 +23,20 @@
 		1409F77816682DEC00A6B4A3 /* PYLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1409F77716682DEC00A6B4A3 /* PYLViewController.m */; };
 		1409F783166830C500A6B4A3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1409F782166830C500A6B4A3 /* AVFoundation.framework */; };
 		14C994FB1668933100770329 /* PYLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C994FA1668933100770329 /* PYLHelper.m */; };
+		14C995001668A87300770329 /* Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C994FE1668A87300770329 /* Button.png */; };
+		14C995011668A87300770329 /* Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C994FF1668A87300770329 /* Button@2x.png */; };
+		14C995101668B13200770329 /* Button-anim1.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C995061668B13200770329 /* Button-anim1.png */; };
+		14C995111668B13200770329 /* Button-anim1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C995071668B13200770329 /* Button-anim1@2x.png */; };
+		14C995121668B13200770329 /* Button-anim2.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C995081668B13200770329 /* Button-anim2.png */; };
+		14C995131668B13200770329 /* Button-anim2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C995091668B13200770329 /* Button-anim2@2x.png */; };
+		14C995141668B13200770329 /* Button-anim3.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C9950A1668B13200770329 /* Button-anim3.png */; };
+		14C995151668B13200770329 /* Button-anim3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C9950B1668B13200770329 /* Button-anim3@2x.png */; };
+		14C995161668B13200770329 /* Button-anim4.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C9950C1668B13200770329 /* Button-anim4.png */; };
+		14C995171668B13200770329 /* Button-anim4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C9950D1668B13200770329 /* Button-anim4@2x.png */; };
+		14C995181668B13200770329 /* Button-anim5.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C9950E1668B13200770329 /* Button-anim5.png */; };
+		14C995191668B13200770329 /* Button-anim5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C9950F1668B13200770329 /* Button-anim5@2x.png */; };
+		14C9951C1668B34300770329 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C9951A1668B34300770329 /* Icon.png */; };
+		14C9951D1668B34300770329 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C9951B1668B34300770329 /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +64,20 @@
 		14C994ED1668861700770329 /* WAVtoFLAC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WAVtoFLAC.h; sourceTree = "<group>"; };
 		14C994F91668933100770329 /* PYLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYLHelper.h; sourceTree = "<group>"; };
 		14C994FA1668933100770329 /* PYLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYLHelper.m; sourceTree = "<group>"; };
+		14C994FE1668A87300770329 /* Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button.png; sourceTree = "<group>"; };
+		14C994FF1668A87300770329 /* Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button@2x.png"; sourceTree = "<group>"; };
+		14C995061668B13200770329 /* Button-anim1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-anim1.png"; sourceTree = "<group>"; };
+		14C995071668B13200770329 /* Button-anim1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-anim1@2x.png"; sourceTree = "<group>"; };
+		14C995081668B13200770329 /* Button-anim2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-anim2.png"; sourceTree = "<group>"; };
+		14C995091668B13200770329 /* Button-anim2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-anim2@2x.png"; sourceTree = "<group>"; };
+		14C9950A1668B13200770329 /* Button-anim3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-anim3.png"; sourceTree = "<group>"; };
+		14C9950B1668B13200770329 /* Button-anim3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-anim3@2x.png"; sourceTree = "<group>"; };
+		14C9950C1668B13200770329 /* Button-anim4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-anim4.png"; sourceTree = "<group>"; };
+		14C9950D1668B13200770329 /* Button-anim4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-anim4@2x.png"; sourceTree = "<group>"; };
+		14C9950E1668B13200770329 /* Button-anim5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-anim5.png"; sourceTree = "<group>"; };
+		14C9950F1668B13200770329 /* Button-anim5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-anim5@2x.png"; sourceTree = "<group>"; };
+		14C9951A1668B34300770329 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = SOURCE_ROOT; };
+		14C9951B1668B34300770329 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,17 +130,18 @@
 		1409F76116682DEC00A6B4A3 /* Pylon */ = {
 			isa = PBXGroup;
 			children = (
+				1409F77316682DEC00A6B4A3 /* MainStoryboard.storyboard */,
 				1409F76A16682DEC00A6B4A3 /* PYLAppDelegate.h */,
 				1409F76B16682DEC00A6B4A3 /* PYLAppDelegate.m */,
-				1409F77316682DEC00A6B4A3 /* MainStoryboard.storyboard */,
 				1409F77616682DEC00A6B4A3 /* PYLViewController.h */,
 				1409F77716682DEC00A6B4A3 /* PYLViewController.m */,
 				14C994F91668933100770329 /* PYLHelper.h */,
 				14C994FA1668933100770329 /* PYLHelper.m */,
 				14006DFD1668385700DE6EAB /* PYLSpeechToText.h */,
 				14006DFE1668385700DE6EAB /* PYLSpeechToText.m */,
-				1409F76216682DEC00A6B4A3 /* Supporting Files */,
 				14C994ED1668861700770329 /* WAVtoFLAC.h */,
+				14C994FD1668A87300770329 /* Assets */,
+				1409F76216682DEC00A6B4A3 /* Supporting Files */,
 			);
 			path = Pylon;
 			sourceTree = "<group>";
@@ -120,6 +149,8 @@
 		1409F76216682DEC00A6B4A3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				14C9951A1668B34300770329 /* Icon.png */,
+				14C9951B1668B34300770329 /* Icon@2x.png */,
 				1409F76316682DEC00A6B4A3 /* Pylon-Info.plist */,
 				1409F76416682DEC00A6B4A3 /* InfoPlist.strings */,
 				1409F76716682DEC00A6B4A3 /* main.m */,
@@ -129,6 +160,25 @@
 				1409F77116682DEC00A6B4A3 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		14C994FD1668A87300770329 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				14C995061668B13200770329 /* Button-anim1.png */,
+				14C995071668B13200770329 /* Button-anim1@2x.png */,
+				14C995081668B13200770329 /* Button-anim2.png */,
+				14C995091668B13200770329 /* Button-anim2@2x.png */,
+				14C9950A1668B13200770329 /* Button-anim3.png */,
+				14C9950B1668B13200770329 /* Button-anim3@2x.png */,
+				14C9950C1668B13200770329 /* Button-anim4.png */,
+				14C9950D1668B13200770329 /* Button-anim4@2x.png */,
+				14C9950E1668B13200770329 /* Button-anim5.png */,
+				14C9950F1668B13200770329 /* Button-anim5@2x.png */,
+				14C994FE1668A87300770329 /* Button.png */,
+				14C994FF1668A87300770329 /* Button@2x.png */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +238,20 @@
 				1409F77016682DEC00A6B4A3 /* Default@2x.png in Resources */,
 				1409F77216682DEC00A6B4A3 /* Default-568h@2x.png in Resources */,
 				1409F77516682DEC00A6B4A3 /* MainStoryboard.storyboard in Resources */,
+				14C995001668A87300770329 /* Button.png in Resources */,
+				14C995011668A87300770329 /* Button@2x.png in Resources */,
+				14C995101668B13200770329 /* Button-anim1.png in Resources */,
+				14C995111668B13200770329 /* Button-anim1@2x.png in Resources */,
+				14C995121668B13200770329 /* Button-anim2.png in Resources */,
+				14C995131668B13200770329 /* Button-anim2@2x.png in Resources */,
+				14C995141668B13200770329 /* Button-anim3.png in Resources */,
+				14C995151668B13200770329 /* Button-anim3@2x.png in Resources */,
+				14C995161668B13200770329 /* Button-anim4.png in Resources */,
+				14C995171668B13200770329 /* Button-anim4@2x.png in Resources */,
+				14C995181668B13200770329 /* Button-anim5.png in Resources */,
+				14C995191668B13200770329 /* Button-anim5@2x.png in Resources */,
+				14C9951C1668B34300770329 /* Icon.png in Resources */,
+				14C9951D1668B34300770329 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

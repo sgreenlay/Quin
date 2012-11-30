@@ -18,15 +18,16 @@ NSMutableData *flacData = nil;
 
 @implementation PYLSpeechToText
 
-+ (void)convertSpeechToText:(NSString *)wavPath andProcessTextWithBlock:(void (^)(NSString *))block error:(NSError **)error {
++ (void)convertSpeechToText:(NSString *)wavPath andProcessTextWithBlock:(void (^)(NSString *, NSError *))block {
     NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [directoryPaths objectAtIndex:0];
     NSString *flacPath = [documentsDirectory stringByAppendingPathComponent:@"speech.flac"];
     
     if (convertWavToFlac([wavPath cStringUsingEncoding:NSUTF8StringEncoding], [flacPath cStringUsingEncoding:NSUTF8StringEncoding]))
     {
+        block(@"", [NSError errorWithDomain:@"Pylon" code:1 userInfo:nil]);
         return;
-    }8
+    }
     
     NSMutableURLRequest *request = [NSMutableURLRequest new];
     [request setURL:[NSURL URLWithString:@"https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=en-US&maxresults=10&pfilter=0"]];
@@ -48,16 +49,18 @@ NSMutableData *flacData = nil;
         
         NSArray *options = [returnValues valueForKey:@"hypotheses"];
         if (options == nil || options.count < 1) {
+            block(@"", [NSError errorWithDomain:@"Pylon" code:1 userInfo:nil]);
             return;
         }
         
         NSDictionary *bestResult = [options objectAtIndex:0];
         NSString *result = [bestResult valueForKey:@"utterance"];
         if (result == nil) {
+            block(@"", [NSError errorWithDomain:@"Pylon" code:1 userInfo:nil]);
             return;
         }
         
-        block(result);
+        block(result, nil);
     }];
 }
 
