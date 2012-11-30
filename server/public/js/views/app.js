@@ -5,7 +5,7 @@ $(function($) {
     app.AppView = Backbone.View.extend({
         initialize: function(a) {
             var donut;
-            donut = new app.DonutView(a);
+
         }
     });
 });

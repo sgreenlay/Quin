@@ -4,6 +4,8 @@ $(function($) {
     'use strict';
 
     app.GenderData = app.Data.extend({
+        URL: 'query?type=gender',
+
         parse: function(res) {
             var counts, total;
             counts = _.pairs(_.countBy(res.data, function(x) {

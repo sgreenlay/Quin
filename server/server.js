@@ -7,16 +7,11 @@ app.configure(function(){
     app.use(express.static(__dirname + '/public'));
 });
 
-/* Helpers */
+/* Queries */
 
-var genderQuery = function(token, callback) {
-    var query = 'SELECT+sex+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());';
-    opengraph.fql(query, token, function(res) {
-        if (res == null) {
-            error();
-        }
-        callback(res);
-    });
+queries = {
+    gender: 'SELECT+sex+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
+    mutuals: 'SELECT+name,mutual_friend_count+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());'
 }
 
 /* Routes */
@@ -26,8 +21,11 @@ app.get('/', function(req, res){
 });
 
 app.get('/query', function(req, res){
-    var token = "AAACEdEose0cBALWiNiHZBMHhZCQmz0Ui2nNiKLIqOyOHHrpVud0jGjMIwLPDaVSxU97LSDkrGgz15GPbZCZAvWN9sgEzj2ldWgBoVwNFpgt56MRxZBSnr";
-    genderQuery(token, function(data) {
+    var token = "AAACEdEose0cBAGA5QfN41oZBIJ2auzSQY5QSFkiQY1ATMNZCMoVx1tvKQDCmZC8PpicIKrYr5cYkZAW9BI4BHultwuXNhZCAnhKEjZBzXdBKVYZBSXdP4Sk";
+    opengraph.fql(queries[req.query.type], token, function(data) {
+        if (res == null) {
+            error();
+        }
         res.json(data);
     });
 });

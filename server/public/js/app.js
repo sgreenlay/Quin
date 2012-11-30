@@ -1,11 +1,10 @@
 var app = app || {};
 
 $(function($) {
-    var view, model;
-    model = new app.GenderData();
-    view = new app.AppView({
+    var view, chart;
+    model = new app.MutualData();
+    chart = new app.BarView({
         dataModel: model
     });
-
-    model.load('/query');
+    model.load();
 });

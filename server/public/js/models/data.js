@@ -4,9 +4,9 @@ $(function($) {
     'use strict';
 
     app.Data = Backbone.Model.extend({
-        load: function(url) {
+        load: function() {
             var self = this;
-            d3.json(url, function(res) {
+            d3.json(this.URL, function(res) {
                 self.parse(res);
                 self.trigger("newData");
             });
