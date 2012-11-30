@@ -1,9 +1,8 @@
 var _ = require('underscore');
 var express = require('express');
-var natural = require('natural');
 var opengraph = require('./opengraph');
 var tc = require('./textclassifier');
-var pos = require('pos');
+var qp = require('./queryprocessor');
 
 var app = express();
 app.configure(function(){
@@ -32,12 +31,17 @@ app.get('/typeify', function(req, res) {
 
 app.get('/query', function(req, res){
     var token, type, query;
-
+    
     token = process.env.HARD_FB_TOKEN;
     type = req.query.type;
     if (type == null) {
         return;
     }
+    query = req.query.text;
+    
+    console.log(req.query);
+    
+    qp.processQuery(query, type);
 
     opengraph.fql(queries[type], token, function(data) {
         if (res == null) {

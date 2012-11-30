@@ -1,8 +1,9 @@
 var _ = require('underscore');
 var natural = require('natural');
+
 var tc = exports;
 
-tc.classifier = new natural.BayesClassifier();
+tc.classifier = new natural.BayesClassifier(natural.LancasterStemmer);
 
 // Gender training set
 tc.classifier.addDocument('how many of my friends are male', 'gender');
@@ -38,14 +39,18 @@ var languages = [
 
 tc.classifier.addDocument('people who speak', 'languages');
 tc.classifier.addDocument('friends who speak', 'languages');
+tc.classifier.addDocument('people that speak', 'languages');
+tc.classifier.addDocument('friends that speak', 'languages');
 
 _.each(languages, function(language) {
 	tc.classifier.addDocument('people who speak' + language, 'languages');
+	tc.classifier.addDocument('people that speak' + language, 'languages');
 	tc.classifier.addDocument(language + ' friends', 'languages');
 	tc.classifier.addDocument(language + ' speaking friends', 'languages');
 });
 
 // Religion training set
+/*
 var religions = [
 	'atheist',
 	'christian',
@@ -60,6 +65,7 @@ _.each(religions, function(religion) {
 	tc.classifier.addDocument(religion, 'religion');
 	tc.classifier.addDocument(religion + ' friends', 'religion');
 });
+ */
 
 // Current schools training set
 var schools = [
@@ -85,11 +91,13 @@ tc.classifier.addDocument('people in', 'current_loc');
 tc.classifier.addDocument('people located in', 'current_loc');
 tc.classifier.addDocument('people currently in', 'current_loc');
 tc.classifier.addDocument('people visiting', 'current_loc');
+tc.classifier.addDocument('people that live in', 'current_loc');
 tc.classifier.addDocument('friends living in', 'current_loc');
 tc.classifier.addDocument('friends in', 'current_loc');
 tc.classifier.addDocument('friends located in', 'current_loc');
 tc.classifier.addDocument('friends currently in', 'current_loc');
 tc.classifier.addDocument('friends visiting', 'current_loc');
+tc.classifier.addDocument('friends that live in', 'current_loc');
 
 // Current job training set
 var companies = [
@@ -106,5 +114,12 @@ tc.classifier.addDocument('people working at', 'current_job');
 // Mutual friends training set
 tc.classifier.addDocument('friends I have in common with', 'mutual');
 tc.classifier.addDocument('mutual friends I have with', 'mutual');
+tc.classifier.addDocument('common friends with', 'mutual');
+tc.classifier.addDocument('friends in common with', 'mutual');
+tc.classifier.addDocument('mutual friends with', 'mutual');
 
 tc.classifier.train();
+
+tc.classifier.save('classifier.json', function(err, classifier) {
+	// the classifier is saved to the classifier.json file!
+});
