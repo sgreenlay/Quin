@@ -40,6 +40,7 @@ $(function($) {
 
         parse: function(res) {
             this.set("data", res.data);
+            this.set("total", res.data.length);
         },
 
         extract: function(x) {
