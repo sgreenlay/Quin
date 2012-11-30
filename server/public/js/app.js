@@ -51,4 +51,6 @@ $(function($) {
             model.load();
         }
     });
+
+    d3.select("#query").text(getQueryVariable("query"));
 });
