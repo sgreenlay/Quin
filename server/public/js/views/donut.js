@@ -27,7 +27,7 @@ $(function($) {
         },
 
         render: function(model) {
-            var arc, data, total;
+            var arc, data, total, legends;
 
             data = model.get("data");
             total = model.get("total");
@@ -51,8 +51,25 @@ $(function($) {
                         return COLOR_MAP[d.type];
                     }
                     return "black";
-                })
-;
+                });
+
+            var legends = d3.select("#legend").selectAll("div.legend")
+                .data(data)
+                .enter().append("div")
+                .attr("class", "legend");
+            legends.append("div")
+                .attr("class", "box")
+                .style("background-color", function(d) {
+                    if (COLOR_MAP[d.type]) {
+                        return COLOR_MAP[d.type];
+                    }
+                    return "black";
+                });
+            legends.append("div")
+                .attr("class", "label")
+                .text(function(d) {
+                    return d.type;
+                });
         }
     });
 });

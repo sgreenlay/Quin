@@ -11,6 +11,9 @@ $(function($) {
             counts = _.pairs(_.countBy(res.data, function(x) {
                 return x.sex ? x.sex : 'undeclared';
             }));
+            counts = _.sortBy(counts, function(x) {
+                return -x[1];
+            });
             total = 0;
             counts = _.map(counts, function(x, i) {
                 total += x[1];
