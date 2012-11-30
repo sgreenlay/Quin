@@ -55,6 +55,14 @@ $(function($) {
             model.setToken(token);
             chart.setModel(model);
             model.load();
+
+            model.on('newData', function() {
+                // This will be cancelled by obj-c
+                var is_uiwebview = /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(navigator.userAgent);
+                if (is_uiwebview) {
+                    window.location.href = "js-call:layoutWebview";
+                }
+            });
         }
     });
 
