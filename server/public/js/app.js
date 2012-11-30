@@ -30,7 +30,7 @@ $(function($) {
                 model = new app.GroupByData({field: "current_location.city", reject_unknowns:true});
                 chart = new app.BarView();
                 break;
-            case 'language':
+            case 'languages':
                 model = new app.GroupByData({field: "languages.name"});
                 chart = new app.DonutView();
                 break;
