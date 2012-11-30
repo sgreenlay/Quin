@@ -11,12 +11,16 @@
     <link rel="stylesheet/less" type="text/css" href="css/app.less">
 
     <!-- Require libraries -->
+    <script src="js/lib/jquery.min.js"></script>
     <script src="js/lib/less.min.js"></script>
 
     <script type="text/javascript">
       function windowHeight() {
         return $("BODY").height();
       }
+      $(function($) {
+        window.location.href = "js-call:layoutWebview";
+      });
     </script>
   </head>
   <body>

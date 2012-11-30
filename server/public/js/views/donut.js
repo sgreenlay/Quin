@@ -79,7 +79,7 @@ $(function($) {
                     var perc;
                     perc = d.value / total;
                     perc = Math.floor(perc * 100);
-                    return d.type.capitalizeFirst() + " (" + perc + "%)";
+                    return d.type.capitalizeFirst() + " (" + d.value + ",  " + perc + "%)";
                 });
         }
     });
