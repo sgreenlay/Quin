@@ -46,6 +46,7 @@
 		1409F77616682DEC00A6B4A3 /* PYLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PYLViewController.h; sourceTree = "<group>"; };
 		1409F77716682DEC00A6B4A3 /* PYLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PYLViewController.m; sourceTree = "<group>"; };
 		1409F782166830C500A6B4A3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		14C994ED1668861700770329 /* WAVtoFLAC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WAVtoFLAC.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +107,7 @@
 				14006DFD1668385700DE6EAB /* PYLSpeechToText.h */,
 				14006DFE1668385700DE6EAB /* PYLSpeechToText.m */,
 				1409F76216682DEC00A6B4A3 /* Supporting Files */,
+				14C994ED1668861700770329 /* WAVtoFLAC.h */,
 			);
 			path = Pylon;
 			sourceTree = "<group>";

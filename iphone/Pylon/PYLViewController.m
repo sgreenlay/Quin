@@ -23,13 +23,15 @@
     
     NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [directoryPaths objectAtIndex:0];
-    speechFilePath = [documentsDirectory stringByAppendingPathComponent:@"speech.caf"];
+    speechFilePath = [documentsDirectory stringByAppendingPathComponent:@"speech.wav"];
     
     NSDictionary *recordSettings = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    [NSNumber numberWithInt:AVAudioQualityMin], AVEncoderAudioQualityKey,
-                                    [NSNumber numberWithInt:16], AVEncoderBitRateKey,
-                                    [NSNumber numberWithInt:2], AVNumberOfChannelsKey,
+                                    [NSNumber numberWithInt:kAudioFormatLinearPCM], AVFormatIDKey,
                                     [NSNumber numberWithFloat:44100.0], AVSampleRateKey,
+                                    [NSNumber numberWithInt: 2], AVNumberOfChannelsKey,
+                                    [NSNumber numberWithInt:16], AVLinearPCMBitDepthKey,
+                                    [NSNumber numberWithBool:NO], AVLinearPCMIsBigEndianKey,
+                                    [NSNumber numberWithBool:NO], AVLinearPCMIsFloatKey,
                                     nil];
     
     audioRecorder = [[AVAudioRecorder alloc] initWithURL:[NSURL URLWithString:speechFilePath] settings:recordSettings error:nil];
@@ -50,7 +52,7 @@
     }
     else {
         [audioRecorder stop];
-        [PYLSpeechToText convertSpeechToText:[NSURL URLWithString:speechFilePath] andProcessTextWithBlock:^(NSString * text) {
+        [PYLSpeechToText convertSpeechToText:speechFilePath andProcessTextWithBlock:^(NSString * text) {
             NSLog(@"%@", text);
         } error:nil];
     }

@@ -10,6 +10,6 @@
 
 @interface PYLSpeechToText : NSObject
 
-+ (void)convertSpeechToText:(NSURL *)url andProcessTextWithBlock:(void (^)(NSString *))block error:(NSError **)error;
++ (void)convertSpeechToText:(NSString *)path andProcessTextWithBlock:(void (^)(NSString *))block error:(NSError **)error;
 
 @end
