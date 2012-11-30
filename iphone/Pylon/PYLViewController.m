@@ -77,7 +77,7 @@
         if (error == nil) {
             NSString *token = [[FBSession activeSession] accessToken];
             
-            NSString * queryUrl = [NSString stringWithFormat:@"http://192.168.3.1/?query=%@&token=%@", text, token];
+            NSString * queryUrl = [NSString stringWithFormat:@"http://searchapp.herokuapp.com/?query=%@&token=%@", text, token];
             NSString *acceptableUrl = [queryUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             
             NSURL * url = [NSURL URLWithString:acceptableUrl];
