@@ -20,8 +20,16 @@ $(function($) {
 
     d3.json(TYPE_URL + "?query=" + getQueryVariable("query"), function(res) {
         switch(res) {
+        case 'current_loc':
+            model = new app.CountData({field: "current_location.city", reject_unknowns:true});
+            chart = new app.BarView();
+            break;
+        case 'languages':
+            model = new app.CountData({field: "languages.name"});
+            chart = new app.DonutView();
+            break;
         case 'gender':
-            model = new app.GenderData();
+            model = new app.CountData({field: "sex"});
             chart = new app.DonutView();
             break;
         case 'mutuals':
