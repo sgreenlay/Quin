@@ -44,7 +44,6 @@ var genderFeatures = [
 	'boy',
 	'guy',
 	'male',
-	'females',
 	'girls',
 	'boys',
 	'guys',
