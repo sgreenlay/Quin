@@ -3,9 +3,9 @@ var app = app || {};
 $(function($) {
     'use strict';
 
-    var WIDTH = 200;
-    var HEIGHT = 200;
-    var INNER_RAD = 45;
+    var WIDTH = 300;
+    var HEIGHT = 300;
+    var INNER_RAD = 65;
     var OUTER_RAD = WIDTH/2;
 
     var COLOR_MAP = {
@@ -64,7 +64,7 @@ $(function($) {
             var legends = d3.select("#legend").selectAll("div.legend")
                 .data(data)
                 .enter().append("div")
-                .attr("class", "legend");
+                .attr("class", "legend clearfix");
             legends.append("div")
                 .attr("class", "box")
                 .style("background-color", function(d, i) {
@@ -76,7 +76,10 @@ $(function($) {
             legends.append("div")
                 .attr("class", "label")
                 .text(function(d) {
-                    return d.type;
+                    var perc;
+                    perc = d.value / total;
+                    perc = Math.floor(perc * 100);
+                    return d.type + " (" + perc + "%)";
                 });
         }
     });

@@ -37,6 +37,12 @@
 		14C995191668B13200770329 /* Button-anim5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C9950F1668B13200770329 /* Button-anim5@2x.png */; };
 		14C9951C1668B34300770329 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C9951A1668B34300770329 /* Icon.png */; };
 		14C9951D1668B34300770329 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14C9951B1668B34300770329 /* Icon@2x.png */; };
+		29FBC5261668CB40009E0CCA /* BottomBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 29FBC5251668CB40009E0CCA /* BottomBar.png */; };
+		29FBC5291668CBD1009E0CCA /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 29FBC5281668CBD1009E0CCA /* Background.png */; };
+		29FBC52C1668CDEC009E0CCA /* Button-Left.png in Resources */ = {isa = PBXBuildFile; fileRef = 29FBC52A1668CDEC009E0CCA /* Button-Left.png */; };
+		29FBC52D1668CDEC009E0CCA /* Button-LeftOver.png in Resources */ = {isa = PBXBuildFile; fileRef = 29FBC52B1668CDEC009E0CCA /* Button-LeftOver.png */; };
+		29FBC5301668CF33009E0CCA /* Button-Right.png in Resources */ = {isa = PBXBuildFile; fileRef = 29FBC52E1668CF33009E0CCA /* Button-Right.png */; };
+		29FBC5311668CF33009E0CCA /* Button-RightOver.psd in Resources */ = {isa = PBXBuildFile; fileRef = 29FBC52F1668CF33009E0CCA /* Button-RightOver.psd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +84,12 @@
 		14C9950F1668B13200770329 /* Button-anim5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-anim5@2x.png"; sourceTree = "<group>"; };
 		14C9951A1668B34300770329 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = SOURCE_ROOT; };
 		14C9951B1668B34300770329 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = SOURCE_ROOT; };
+		29FBC5251668CB40009E0CCA /* BottomBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BottomBar.png; sourceTree = "<group>"; };
+		29FBC5281668CBD1009E0CCA /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
+		29FBC52A1668CDEC009E0CCA /* Button-Left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-Left.png"; sourceTree = "<group>"; };
+		29FBC52B1668CDEC009E0CCA /* Button-LeftOver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-LeftOver.png"; sourceTree = "<group>"; };
+		29FBC52E1668CF33009E0CCA /* Button-Right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-Right.png"; sourceTree = "<group>"; };
+		29FBC52F1668CF33009E0CCA /* Button-RightOver.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Button-RightOver.psd"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +177,12 @@
 		14C994FD1668A87300770329 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				29FBC52E1668CF33009E0CCA /* Button-Right.png */,
+				29FBC52F1668CF33009E0CCA /* Button-RightOver.psd */,
+				29FBC52A1668CDEC009E0CCA /* Button-Left.png */,
+				29FBC52B1668CDEC009E0CCA /* Button-LeftOver.png */,
+				29FBC5281668CBD1009E0CCA /* Background.png */,
+				29FBC5251668CB40009E0CCA /* BottomBar.png */,
 				14C995061668B13200770329 /* Button-anim1.png */,
 				14C995071668B13200770329 /* Button-anim1@2x.png */,
 				14C995081668B13200770329 /* Button-anim2.png */,
@@ -252,6 +270,12 @@
 				14C995191668B13200770329 /* Button-anim5@2x.png in Resources */,
 				14C9951C1668B34300770329 /* Icon.png in Resources */,
 				14C9951D1668B34300770329 /* Icon@2x.png in Resources */,
+				29FBC5261668CB40009E0CCA /* BottomBar.png in Resources */,
+				29FBC5291668CBD1009E0CCA /* Background.png in Resources */,
+				29FBC52C1668CDEC009E0CCA /* Button-Left.png in Resources */,
+				29FBC52D1668CDEC009E0CCA /* Button-LeftOver.png in Resources */,
+				29FBC5301668CF33009E0CCA /* Button-Right.png in Resources */,
+				29FBC5311668CF33009E0CCA /* Button-RightOver.psd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
