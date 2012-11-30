@@ -7,6 +7,7 @@ $(function($) {
     var HEIGHT = 200;
     var BAR_MIN_WIDTH = 10;
     var TEXT_WIDTH = 35;
+    var BG_COLOR = "#1e1e1e";
 
     app.BarView = app.ChartView.extend({
         initialize: function(a) {
@@ -54,7 +55,7 @@ $(function($) {
                     (Math.floor(color(value(d))) + 200) +
                 ")";
             })
-            .style("stroke", "white")
+            .style("stroke", BG_COLOR)
             .style("stroke-width", "4px");
 
             barsL = this.chart.selectAll("text.label")
@@ -78,6 +79,7 @@ $(function($) {
                 .data(data);
             barsL.enter().append("text")
                 .attr("class", "count")
+                .attr("fill", "white")
                 .attr("font-weight", "bold")
                 .attr("font-family", "helvetica")
                 .attr("font-size", "14px")
