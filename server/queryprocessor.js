@@ -38,7 +38,8 @@ qp.query = function(query, category, token, callback) {
 	switch (category) {
 		case 'current_loc':
 			var mistakenWords = [
-				'show'
+				'show',
+				'friend'
 			];
 			
 			var locations = _.map(_.filter(taggedWords, function(taggedWord) {
