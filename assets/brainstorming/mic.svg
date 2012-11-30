@@ -44,9 +44,9 @@
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:zoom="11.085806"
-     inkscape:cx="394.73814"
-     inkscape:cy="1319.7379"
+     inkscape:zoom="0.48992806"
+     inkscape:cx="351"
+     inkscape:cy="695"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -672,4 +672,16 @@
      d="m 260.42309,179.53325 12.53856,8.38911 0,0 0,0"
      id="path3284"
      inkscape:connector-curvature="0" />
+  <path
+     style="fill:#ffffff;fill-opacity:1;stroke:none"
+     d="m 311.9412,1303.9363 -1.59589,-18.5754 -18.54045,8.5149 z"
+     id="path4060"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccc" />
+  <path
+     style="fill:#ffffff;fill-opacity:1;stroke:none"
+     d="m 312.8863,1303.3136 -1.55593,-18.2809 19.93889,6.3118 z"
+     id="path4060-7"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccc" />
 </svg>
