@@ -42,7 +42,8 @@
 		29FBC52C1668CDEC009E0CCA /* Button-Left.png in Resources */ = {isa = PBXBuildFile; fileRef = 29FBC52A1668CDEC009E0CCA /* Button-Left.png */; };
 		29FBC52D1668CDEC009E0CCA /* Button-LeftOver.png in Resources */ = {isa = PBXBuildFile; fileRef = 29FBC52B1668CDEC009E0CCA /* Button-LeftOver.png */; };
 		29FBC5301668CF33009E0CCA /* Button-Right.png in Resources */ = {isa = PBXBuildFile; fileRef = 29FBC52E1668CF33009E0CCA /* Button-Right.png */; };
-		29FBC5311668CF33009E0CCA /* Button-RightOver.psd in Resources */ = {isa = PBXBuildFile; fileRef = 29FBC52F1668CF33009E0CCA /* Button-RightOver.psd */; };
+		29FBC5331668D04A009E0CCA /* Button-RightOver.png in Resources */ = {isa = PBXBuildFile; fileRef = 29FBC5321668D049009E0CCA /* Button-RightOver.png */; };
+		29FBC5351668D9D0009E0CCA /* Button-Main.png in Resources */ = {isa = PBXBuildFile; fileRef = 29FBC5341668D9D0009E0CCA /* Button-Main.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,7 +90,8 @@
 		29FBC52A1668CDEC009E0CCA /* Button-Left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-Left.png"; sourceTree = "<group>"; };
 		29FBC52B1668CDEC009E0CCA /* Button-LeftOver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-LeftOver.png"; sourceTree = "<group>"; };
 		29FBC52E1668CF33009E0CCA /* Button-Right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-Right.png"; sourceTree = "<group>"; };
-		29FBC52F1668CF33009E0CCA /* Button-RightOver.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Button-RightOver.psd"; sourceTree = "<group>"; };
+		29FBC5321668D049009E0CCA /* Button-RightOver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-RightOver.png"; sourceTree = "<group>"; };
+		29FBC5341668D9D0009E0CCA /* Button-Main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-Main.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,8 +179,9 @@
 		14C994FD1668A87300770329 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				29FBC5341668D9D0009E0CCA /* Button-Main.png */,
+				29FBC5321668D049009E0CCA /* Button-RightOver.png */,
 				29FBC52E1668CF33009E0CCA /* Button-Right.png */,
-				29FBC52F1668CF33009E0CCA /* Button-RightOver.psd */,
 				29FBC52A1668CDEC009E0CCA /* Button-Left.png */,
 				29FBC52B1668CDEC009E0CCA /* Button-LeftOver.png */,
 				29FBC5281668CBD1009E0CCA /* Background.png */,
@@ -275,7 +278,8 @@
 				29FBC52C1668CDEC009E0CCA /* Button-Left.png in Resources */,
 				29FBC52D1668CDEC009E0CCA /* Button-LeftOver.png in Resources */,
 				29FBC5301668CF33009E0CCA /* Button-Right.png in Resources */,
-				29FBC5311668CF33009E0CCA /* Button-RightOver.psd in Resources */,
+				29FBC5331668D04A009E0CCA /* Button-RightOver.png in Resources */,
+				29FBC5351668D9D0009E0CCA /* Button-Main.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

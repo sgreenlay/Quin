@@ -3,9 +3,9 @@ var app = app || {};
 $(function($) {
     'use strict';
 
-    var WIDTH = 300;
-    var HEIGHT = 300;
-    var INNER_RAD = 65;
+    var WIDTH = 250;
+    var HEIGHT = 250;
+    var INNER_RAD = 50;
     var OUTER_RAD = WIDTH/2;
 
     var COLOR_MAP = {
