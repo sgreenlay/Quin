@@ -24,9 +24,14 @@ app.get('/', function(req, res){
 });
 
 app.get('/typeify', function(req, res) {
+    
     query = req.query.query;
-    console.log("Processing query '" + query + "' Type: " + tc.classifier.classify(query));
-    res.json(tc.classifier.classify(query));
+    type = tc.classifier.classify(query);
+    
+    console.log("Processing query '" + query + "' Type: " + type);
+    console.log(tc.classifier.classify(query));
+    
+    res.json(type);
 });
 
 app.get('/query', function(req, res){
