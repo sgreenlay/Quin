@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface PYLViewController : UIViewController<UIWebViewDelegate> {
     BOOL isRecording;
     AVAudioRecorder *audioRecorder;
     NSString *speechFilePath;
+    FBLoginView *loginview;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *button;
@@ -22,5 +24,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *glowProc;
 
 - (IBAction)searchButtonPress:(id)sender;
+- (IBAction)loggedin:(id)sender;
 
 @end

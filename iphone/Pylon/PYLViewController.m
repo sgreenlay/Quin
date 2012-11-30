@@ -9,6 +9,7 @@
 #import "PYLViewController.h"
 #import "PYLHelper.h"
 #import "PYLSpeechToText.h"
+
 #import <QuartzCore/QuartzCore.h>
 
 @interface PYLViewController ()
@@ -76,6 +77,7 @@
         if (error == nil) {
             NSString * queryUrl = [NSString stringWithFormat:@"http://searchapp.herokuapp.com/?query=%@", text];
             NSString *acceptableUrl = [queryUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            
             NSURL * url = [NSURL URLWithString:acceptableUrl];
             [_webView loadRequest:[NSURLRequest requestWithURL:url]];
         } else {
@@ -104,6 +106,12 @@
     else {
         isRecording = FALSE;
         [self stopRecording];
+    }
+}
+
+- (IBAction)loggedin:(id)sender {
+    if (FBSession.activeSession.isOpen) {
+        NSLog(@"%@", [[FBSession activeSession] accessToken]);
     }
 }
 
