@@ -7,6 +7,7 @@
 //
 
 #import "PYLViewController.h"
+#import "PYLHelper.h"
 #import "PYLSpeechToText.h"
 
 @interface PYLViewController ()
@@ -45,16 +46,55 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    NSLog(@"Done loading.");
+}
+- (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
+    return YES;
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    NSLog(@"Error.");
+}
+
+- (void)startRecording {
+    [audioRecorder record];
+}
+
+- (void)stopRecording {
+    [audioRecorder stop];
+    [PYLSpeechToText convertSpeechToText:speechFilePath andProcessTextWithBlock:^(NSString * text, NSError *error) {
+        if (error == nil) {
+            NSString * queryUrl = [NSString stringWithFormat:@"http://192.168.2.1:3000/?query=%@", text];
+            NSString *acceptableUrl = [queryUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSURL * url = [NSURL URLWithString:acceptableUrl];
+            [_webView loadRequest:[NSURLRequest requestWithURL:url]];
+        }
+        [_button.imageView stopAnimating];
+        _button.imageView.animationImages = nil;
+        _button.imageView.image = [UIImage imageNamed:@"Button.png"];
+    }];
+}
+
 - (IBAction)searchButtonPress:(id)sender {
     if (!isRecording) {
-        [audioRecorder record];
+        [self startRecording];
+        
+        _button.imageView.animationImages = [NSArray arrayWithObjects:
+                                             [UIImage imageNamed:@"Button-anim1.png"],
+                                             [UIImage imageNamed:@"Button-anim2.png"],
+                                             [UIImage imageNamed:@"Button-anim3.png"],
+                                             [UIImage imageNamed:@"Button-anim4.png"],
+                                             [UIImage imageNamed:@"Button-anim5.png"],
+                                             nil];
+        _button.imageView.animationDuration = 0.7;
+        [_button.imageView startAnimating];
+        
         isRecording = TRUE;
     }
     else {
-        [audioRecorder stop];
-        [PYLSpeechToText convertSpeechToText:speechFilePath andProcessTextWithBlock:^(NSString * text) {
-            NSLog(@"%@", text);
-        } error:nil];
+        isRecording = FALSE;
+        [self stopRecording];
     }
 }
 

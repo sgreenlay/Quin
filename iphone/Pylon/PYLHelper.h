@@ -1,5 +1,5 @@
 //
-//  PYLSpeechToText.h
+//  PYLHelper.h
 //  Pylon
 //
 //  Created by Scott Greenlay on 2012-11-29.
@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PYLSpeechToText : NSObject
+@interface PYLHelper : NSObject
 
-+ (void)convertSpeechToText:(NSString *)path andProcessTextWithBlock:(void (^)(NSString *, NSError * error))block;
++ (NSString *)getUniqueFilenameInFolder:(NSString *)folder forFileExtension:(NSString *)fileExtension;
 
 @end
