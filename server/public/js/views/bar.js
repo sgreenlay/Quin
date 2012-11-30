@@ -8,15 +8,8 @@ $(function($) {
     var BAR_MIN_WIDTH = 10;
     var COLOR
 
-    app.BarView = Backbone.View.extend({
+    app.BarView = app.ChartView.extend({
         initialize: function(a) {
-            if (!a["dataModel"]) {
-                throw "No data model specified";
-            }
-
-            this.model = a["dataModel"];
-            this.model.on("newData", this.dataChanged, this);
-
             this.el = d3.select("#chart")
                 .append("svg")
                 .attr("width", WIDTH)
@@ -25,16 +18,15 @@ $(function($) {
             this.chart = this.el.append("g");
         },
 
-        dataChanged: function() {
-            this.render(this.model);
-        },
-
         render: function(model) {
             var data, x, h, w, value, label, barsD, barsL, color;
-
             data = model.get("data");
             value = function(d) { return d.value; }
             label = function(d) { return d.type; }
+
+            if (!data.length) {
+                throw "No data supplied to chart";
+            }
 
             x = d3.scale
                 .linear()

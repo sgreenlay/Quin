@@ -13,15 +13,8 @@ $(function($) {
         female: 'Crimson'
     };
 
-    app.DonutView = Backbone.View.extend({
+    app.DonutView = app.ChartView.extend({
         initialize: function(a) {
-            if (!a["dataModel"]) {
-                throw "No data model specified";
-            }
-
-            this.model = a["dataModel"];
-            this.model.on("newData", this.dataChanged, this);
-
             this.el = d3.select("#chart")
                 .append("svg")
                 .attr("width", WIDTH)
@@ -31,10 +24,6 @@ $(function($) {
                 .attr("transform", "translate(" +
                       WIDTH/2 + "," +
                       HEIGHT/2 + ")");
-        },
-
-        dataChanged: function() {
-            this.render(this.model);
         },
 
         render: function(model) {
