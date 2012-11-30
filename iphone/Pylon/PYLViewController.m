@@ -52,8 +52,6 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [self fadeOut:self.glowProc];
-
     NSLog(@"Done loading.");
 }
 
@@ -73,6 +71,8 @@
 }
 
 - (void)layoutWebview:(UIWebView*)webView {
+    [self.scrollView setContentOffset:CGPointMake(0, _topY) animated:YES];
+    
     NSString *heightStr = [webView stringByEvaluatingJavaScriptFromString:@"windowHeight()"];
     float height = [heightStr floatValue] + 100;
     NSLog(@"Height: %f", height);
@@ -80,8 +80,10 @@
     CGRect fr = webView.frame;
     fr.size = CGSizeMake(webView.frame.size.width, height);
     webView.frame = fr;
-    _topY += height;
-
+    _topY += height - 70;
+    
+    [self fadeIn:webView];
+    [self fadeOut:self.glowProc];
 }
 
 - (void)startRecording {
@@ -112,6 +114,7 @@
                     [(UIScrollView*)obj setScrollEnabled:NO];
                 }
             }];
+            [webView.layer setOpacity:0];
             [self.scrollView addSubview:webView];
             [webView loadRequest:[NSURLRequest requestWithURL:url]];
         } else {
