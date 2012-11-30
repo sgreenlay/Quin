@@ -32,7 +32,10 @@ $(function($) {
                 self.parse(res);
                 self.trigger("newData");
             });
+        },
 
+        parse: function(res) {
+            this.set("data", res.data);
         },
 
         extract: function(x) {

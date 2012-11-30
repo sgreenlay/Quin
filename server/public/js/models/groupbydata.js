@@ -7,12 +7,14 @@ $(function($) {
         parse: function(res) {
             var counts, total, max, self;
             self = this;
+
             counts = _.pairs(_.countBy(res.data, function(x) {
                 return self.extract(x) ? self.extract(x) : 'unknown';
             }));
             counts = _.sortBy(counts, function(x) {
                 return -x[1];
             });
+            console.log(counts);
 
             // Reject unknowns?
             if (self.a && self.a["reject_unknowns"]) {
