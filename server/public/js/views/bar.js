@@ -3,7 +3,7 @@ var app = app || {};
 $(function($) {
     'use strict';
 
-    var WIDTH = 300;
+    var WIDTH = 250;
     var HEIGHT = 200;
     var BAR_MIN_WIDTH = 10;
     var TEXT_WIDTH = 35;

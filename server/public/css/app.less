@@ -1,21 +1,34 @@
+.innerBorder {
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  }
+
 BODY {
   background-color: transparent;
   color: white;
   font-family: helvetica, sans-serif;
   }
 
+#chart {
+  text-align: center;
+  }
+
 #container {
+  .innerBorder;
+
   border: 2px solid rgb(52, 52, 52);
   margin: 1em;
   padding: 1em;
-  width: 480px;
+  width: 280px;
   }
 
 #query {
-  font-size: 2.8em;
+  font-size: 2.5em;
   font-weight: lighter;
   line-height: 1.2em;
-  margin-bottom: 1em;
+  margin-bottom: 0.75em;
   }
 
 #legend {
