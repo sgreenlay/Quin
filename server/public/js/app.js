@@ -30,7 +30,7 @@ $(function($) {
                 model = new app.Data({field: "", reject_unknowns:true});
                 chart = new app.FacepileView();
                 break;
-            case 'language':
+            case 'languages':
                 model = new app.GroupByData({field: "languages.name"});
                 chart = new app.DonutView();
                 break;
