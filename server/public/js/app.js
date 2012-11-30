@@ -21,10 +21,6 @@ $(function($) {
     var query = getQueryVariable("query");
     var token = getQueryVariable("token");
 
-    function capitalizeFirst(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-
     d3.json(TYPE_URL + "?query=" + query, function(res) {
         switch(res) {
             case 'current_loc':
@@ -74,5 +70,11 @@ $(function($) {
         }
     });
 
-    d3.select("#query").text(capitalizeFirst(getQueryVariable("query")));
+    d3.select("#query").text(getQueryVariable("query").capitalizeFirst());
 });
+
+/* Utilities */
+
+String.prototype.capitalizeFirst = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
