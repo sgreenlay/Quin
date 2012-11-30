@@ -24,6 +24,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *glowProc;
 
 - (IBAction)searchButtonPress:(id)sender;
-- (IBAction)loggedin:(id)sender;
 
 @end

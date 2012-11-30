@@ -87,9 +87,6 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="loggedin:" destination="2" eventType="touchUpInside" id="FN0-kp-ZEj"/>
-                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Glow-Blue.png" translatesAutoresizingMaskIntoConstraints="NO" id="QZb-0q-ovK">
                                 <constraints>
@@ -160,7 +157,6 @@
         <class className="PYLViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PYLViewController.h"/>
             <relationships>
-                <relationship kind="action" name="loggedin:"/>
                 <relationship kind="action" name="searchButtonPress:"/>
                 <relationship kind="outlet" name="button" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="glowProc" candidateClass="UIImageView"/>

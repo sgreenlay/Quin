@@ -19,7 +19,7 @@ qp.queries = {
 	languages: 'SELECT+name,languages.name+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());'
 }
 
-qp.query = function(query, category, callback) {
+qp.query = function(query, category, token, callback) {
 	var words = new pos.Lexer().lex(query);
 	var taggedWords = new pos.Tagger().tag(words);
 	
@@ -31,8 +31,6 @@ qp.query = function(query, category, callback) {
 		console.log(word + " /" + tag);
 	}
 	*/
-	
-	var token = process.env.HARD_FB_TOKEN;
 	
 	console.log('Query: ' + category);
 	

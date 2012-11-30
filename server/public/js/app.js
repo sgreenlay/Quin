@@ -19,6 +19,7 @@ $(function($) {
     }
     
     var query = getQueryVariable("query");
+    var token = getQueryVariable("token");
 
     function capitalizeFirst(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -51,6 +52,7 @@ $(function($) {
         if (chart != null && model != null) {
             model.setType(res);
             model.setQuery(query);
+            model.setToken(token);
             chart.setModel(model);
             model.load();
         }

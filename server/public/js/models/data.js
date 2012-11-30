@@ -15,15 +15,19 @@ $(function($) {
         },
 
         setType: function(type) {
-            this.queryType = type
+            this.queryType = type;
         },
         
         setQuery: function(query) {
-            this.queryText = query
+            this.queryText = query;
+        },
+        
+        setToken: function(token) {
+            this.queryToken = token;
         },
         
         getURL: function() {
-            return 'query?type=' + this.queryType + '&text=' + this.queryText;
+            return 'query?type=' + this.queryType + '&text=' + this.queryText + '&token=' + this.queryToken;
         },
 
         load: function() {

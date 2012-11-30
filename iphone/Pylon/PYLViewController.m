@@ -75,7 +75,9 @@
     [audioRecorder stop];
     [PYLSpeechToText convertSpeechToText:speechFilePath andProcessTextWithBlock:^(NSString * text, NSError *error) {
         if (error == nil) {
-            NSString * queryUrl = [NSString stringWithFormat:@"http://searchapp.herokuapp.com/?query=%@", text];
+            NSString *token = [[FBSession activeSession] accessToken];
+            
+            NSString * queryUrl = [NSString stringWithFormat:@"http://192.168.3.1/?query=%@&token=%@", text, token];
             NSString *acceptableUrl = [queryUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             
             NSURL * url = [NSURL URLWithString:acceptableUrl];
@@ -106,12 +108,6 @@
     else {
         isRecording = FALSE;
         [self stopRecording];
-    }
-}
-
-- (IBAction)loggedin:(id)sender {
-    if (FBSession.activeSession.isOpen) {
-        NSLog(@"%@", [[FBSession activeSession] accessToken]);
     }
 }
 

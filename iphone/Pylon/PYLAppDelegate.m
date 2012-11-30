@@ -13,7 +13,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [FBSession openActiveSessionWithAllowLoginUI:true];
-    
     return YES;
 }
 
