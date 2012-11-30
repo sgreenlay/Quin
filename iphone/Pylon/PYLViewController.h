@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface PYLViewController : UIViewController
+@interface PYLViewController : UIViewController {
+    BOOL isRecording;
+    AVAudioRecorder *audioRecorder;
+    NSString *speechFilePath;
+}
+
+- (IBAction)searchButtonPress:(id)sender;
 
 @end

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14006DFC166837DA00DE6EAB /* FLAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14006DFB166837DA00DE6EAB /* FLAC.framework */; };
+		14006DFF1668385700DE6EAB /* PYLSpeechToText.m in Sources */ = {isa = PBXBuildFile; fileRef = 14006DFE1668385700DE6EAB /* PYLSpeechToText.m */; };
+		14006E0416684F7800DE6EAB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14006E0316684F7800DE6EAB /* AudioToolbox.framework */; };
 		1409F75C16682DEC00A6B4A3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1409F75B16682DEC00A6B4A3 /* UIKit.framework */; };
 		1409F75E16682DEC00A6B4A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1409F75D16682DEC00A6B4A3 /* Foundation.framework */; };
 		1409F76016682DEC00A6B4A3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1409F75F16682DEC00A6B4A3 /* CoreGraphics.framework */; };
@@ -18,9 +21,14 @@
 		1409F77216682DEC00A6B4A3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1409F77116682DEC00A6B4A3 /* Default-568h@2x.png */; };
 		1409F77516682DEC00A6B4A3 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1409F77316682DEC00A6B4A3 /* MainStoryboard.storyboard */; };
 		1409F77816682DEC00A6B4A3 /* PYLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1409F77716682DEC00A6B4A3 /* PYLViewController.m */; };
+		1409F783166830C500A6B4A3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1409F782166830C500A6B4A3 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14006DFB166837DA00DE6EAB /* FLAC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FLAC.framework; path = Pylon/Frameworks/FLAC.framework; sourceTree = "<group>"; };
+		14006DFD1668385700DE6EAB /* PYLSpeechToText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PYLSpeechToText.h; sourceTree = "<group>"; };
+		14006DFE1668385700DE6EAB /* PYLSpeechToText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PYLSpeechToText.m; sourceTree = "<group>"; };
+		14006E0316684F7800DE6EAB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		1409F75716682DEC00A6B4A3 /* Pylon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pylon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1409F75B16682DEC00A6B4A3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1409F75D16682DEC00A6B4A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -37,6 +45,7 @@
 		1409F77416682DEC00A6B4A3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		1409F77616682DEC00A6B4A3 /* PYLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PYLViewController.h; sourceTree = "<group>"; };
 		1409F77716682DEC00A6B4A3 /* PYLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PYLViewController.m; sourceTree = "<group>"; };
+		1409F782166830C500A6B4A3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,9 +53,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14006E0416684F7800DE6EAB /* AudioToolbox.framework in Frameworks */,
+				1409F783166830C500A6B4A3 /* AVFoundation.framework in Frameworks */,
 				1409F75C16682DEC00A6B4A3 /* UIKit.framework in Frameworks */,
 				1409F75E16682DEC00A6B4A3 /* Foundation.framework in Frameworks */,
 				1409F76016682DEC00A6B4A3 /* CoreGraphics.framework in Frameworks */,
+				14006DFC166837DA00DE6EAB /* FLAC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +68,7 @@
 		1409F74C16682DEC00A6B4A3 = {
 			isa = PBXGroup;
 			children = (
+				14006E0316684F7800DE6EAB /* AudioToolbox.framework */,
 				1409F76116682DEC00A6B4A3 /* Pylon */,
 				1409F75A16682DEC00A6B4A3 /* Frameworks */,
 				1409F75816682DEC00A6B4A3 /* Products */,
@@ -73,6 +86,8 @@
 		1409F75A16682DEC00A6B4A3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				14006DFB166837DA00DE6EAB /* FLAC.framework */,
+				1409F782166830C500A6B4A3 /* AVFoundation.framework */,
 				1409F75B16682DEC00A6B4A3 /* UIKit.framework */,
 				1409F75D16682DEC00A6B4A3 /* Foundation.framework */,
 				1409F75F16682DEC00A6B4A3 /* CoreGraphics.framework */,
@@ -88,6 +103,8 @@
 				1409F77316682DEC00A6B4A3 /* MainStoryboard.storyboard */,
 				1409F77616682DEC00A6B4A3 /* PYLViewController.h */,
 				1409F77716682DEC00A6B4A3 /* PYLViewController.m */,
+				14006DFD1668385700DE6EAB /* PYLSpeechToText.h */,
+				14006DFE1668385700DE6EAB /* PYLSpeechToText.m */,
 				1409F76216682DEC00A6B4A3 /* Supporting Files */,
 			);
 			path = Pylon;
@@ -177,6 +194,7 @@
 				1409F76816682DEC00A6B4A3 /* main.m in Sources */,
 				1409F76C16682DEC00A6B4A3 /* PYLAppDelegate.m in Sources */,
 				1409F77816682DEC00A6B4A3 /* PYLViewController.m in Sources */,
+				14006DFF1668385700DE6EAB /* PYLSpeechToText.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +273,10 @@
 		1409F77C16682DEC00A6B4A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Pylon/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pylon/Pylon-Prefix.pch";
 				INFOPLIST_FILE = "Pylon/Pylon-Info.plist";
@@ -266,6 +288,10 @@
 		1409F77D16682DEC00A6B4A3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Pylon/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Pylon/Pylon-Prefix.pch";
 				INFOPLIST_FILE = "Pylon/Pylon-Info.plist";
@@ -293,6 +319,7 @@
 				1409F77D16682DEC00A6B4A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
