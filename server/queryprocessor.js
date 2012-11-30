@@ -1,5 +1,6 @@
 var _ = require('underscore');
 var pos = require('pos');
+var natural = require('natural');
 var opengraph = require('./opengraph');
 
 var qp = exports;
@@ -15,7 +16,7 @@ qp.queries = {
 	mutual: 'SELECT+name,mutual_friend_count+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
 	friends: 'SELECT+name,friend_count+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
 	current_loc: 'SELECT+name,current_location.city+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());',
-	language: 'SELECT+name,languages.name+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());'
+	languages: 'SELECT+name,languages.name+FROM+user+WHERE+uid+IN+(SELECT+uid2+FROM+friend+WHERE+uid1+=+me());'
 }
 
 qp.query = function(query, category, callback) {
@@ -33,7 +34,22 @@ qp.query = function(query, category, callback) {
 	
 	var token = process.env.HARD_FB_TOKEN;
 	
-	console.log('Query: ' + category);
+	console.log('Query Before: ' + category);
+	
+	tfidf = new natural.TfIdf();
+	nounInflector = new natural.NounInflector();
+	tfidf.addDocument(query);
+	terms = _.map(tfidf.listTerms(0), function(x) {
+		return {
+			term: nounInflector.singularize(x.term),
+			tfidf: x.tfidf
+		}
+	});
+	terms = _.reject(terms, function(x) {
+		return !terms_to_queries[x.term];
+	});
+	
+	console.log('Query After: ' + terms);
 	
 	switch (category) {
 		case 'current_loc':
@@ -72,7 +88,7 @@ qp.query = function(query, category, callback) {
 		case 'gender':
 		case 'mutual':
 		case 'friends':
-		case 'language':
+		case 'languages':
 			opengraph.fql(qp.queries[category], token, function(data) {
 				callback(data, false);
 			});
