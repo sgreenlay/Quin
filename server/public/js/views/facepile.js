@@ -7,7 +7,7 @@ $(function($) {
         initialize: function(a) {
             this.el = d3.select("#chart")
                 .append("div")
-                .attr("class", "clearfix");
+                .attr("class", "facepile clearfix");
         },
 
         render: function(model) {
@@ -22,6 +22,9 @@ $(function($) {
                 .attr("src", function(d) {
                     return "http://graph.facebook.com/" + d.uid + "/picture?type=square";
                 });
+
+            d3.select("#legend")
+                .text(model.get("total") + " total friends");
         }
     });
 });

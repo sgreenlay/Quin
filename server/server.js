@@ -14,6 +14,10 @@ app.get('/', function(req, res){
     res.render("./public/index.html");
 });
 
+app.get('/help', function(req, res){
+    res.render("./public/help.html");
+});
+
 app.get('/typeify', function(req, res) {
     query = req.query.query.toLowerCase();
     type = tc.classify(query);
